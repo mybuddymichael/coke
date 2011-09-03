@@ -30,10 +30,10 @@
     Player = (function() {
       function Player() {
         this.color = "#ccc";
-        this.x = 220;
-        this.y = 270;
         this.width = 32;
         this.height = 32;
+        this.x = CANVAS_WIDTH / 2 - this.width / 2;
+        this.y = CANVAS_HEIGHT / 2 - this.height / 2;
       }
       Player.prototype.draw = function() {
         canvas.fillStyle = this.color;

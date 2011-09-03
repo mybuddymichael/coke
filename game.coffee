@@ -43,10 +43,10 @@ $(document).ready ->
   class Player
     constructor: ->
       @color = "#ccc"
-      @x = 220
-      @y = 270
       @width = 32
       @height = 32
+      @x = CANVAS_WIDTH/2 - @width/2
+      @y = CANVAS_HEIGHT/2 - @height/2
 
     draw: ->
       canvas.fillStyle = @color
