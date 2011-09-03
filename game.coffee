@@ -55,6 +55,7 @@ $(document).ready ->
 
   player = new Player
 
+
   # Logic
   textX = 50
   textY = 50
