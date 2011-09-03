@@ -4,7 +4,11 @@ Coke
 Coke is a game experiment written in CoffeeScript/JavaScript, using HTML5's
 `canvas` element for rendering.
 
-## Installation
+## Demo
+
+Check it out at [http://mybuddymichael.github.com/coke/]().
+
+## Local installation
 
     git clone https://github.com/mybuddymichael/coke.git
     cd coke
