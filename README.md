@@ -6,7 +6,7 @@ Coke is a game experiment written in CoffeeScript/JavaScript, using HTML5's
 
 ## Installation
 
-    git clone https://github.com/mybuddymichael/Coke.git
+    git clone https://github.com/mybuddymichael/coke.git
     cd coke
     open index.html
 
