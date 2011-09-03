@@ -7,7 +7,8 @@ Coke is a game experiment written in CoffeeScript/JavaScript, using HTML5's
 ## Online demo
 
 Check it out at [http://mybuddymichael.github.com/coke/](), which is always
-in-sync with `master`.
+in-sync with `master`. Usage requires a modern browser with support for the
+`<canvas>` element.
 
 ## Local installation
 
