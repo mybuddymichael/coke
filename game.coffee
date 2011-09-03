@@ -67,8 +67,13 @@ $(document).ready ->
       player.x -= 3
     if keydown.right
       player.x += 3
+    if keydown.up
+      player.y -= 3
+    if keydown.down
+      player.y += 3
 
     player.x = player.x.clamp(0, CANVAS_WIDTH - player.width)
+    player.y = player.y.clamp(0, CANVAS_HEIGHT - player.height)
     return
 
   draw = ->
