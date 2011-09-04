@@ -29,7 +29,7 @@
     });
     Player = (function() {
       function Player() {
-        this.color = "#ccc";
+        this.color = "#5b6449";
         this.width = 32;
         this.height = 32;
         this.x = CANVAS_WIDTH / 2 - this.width / 2;

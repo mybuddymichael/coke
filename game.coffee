@@ -42,7 +42,7 @@ $(document).ready ->
   # Player
   class Player
     constructor: ->
-      @color = "#ccc"
+      @color = "#5b6449"
       @width = 32
       @height = 32
       @x = CANVAS_WIDTH/2 - @width/2
