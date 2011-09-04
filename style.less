@@ -78,6 +78,13 @@ body {
   background: @base_gray;
   color: @dark_green;
 }
+
+a {
+              color:  darken(@dark_green, 12%);
+  &:visited { color:  darken(@dark_green, 20%); }
+  &:hover   { color: lighten(@dark_green, 7%); }
+  &:active  { color: black; }
+}
 canvas {
   background: @background_green;
   border-top:    1px solid darken(@base_gray,  7%);
