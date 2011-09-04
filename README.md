@@ -18,7 +18,7 @@ in-sync with `master`. Usage requires a modern browser with support for the
 
 ## On versioning
 
-> Versions are to Software what Subversion is to Git. - Konstantin Haase
+> "Versions are to Software what Subversion is to Git." – Konstantin Haase
 
 `Master` is stable, anything else is not. The [demo site]
 (http://mybuddymichael.github.com/coke/) uses `master`, and is always in a
