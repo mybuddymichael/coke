@@ -16,7 +16,7 @@ in-sync with `master`. Usage requires a modern browser with support for the
     cd coke
     open index.html
 
-## On versions
+## On versioning
 
 > Versions are to Software what Subversion is to Git. - Konstantin Haase
 
