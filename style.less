@@ -51,11 +51,13 @@ table {
   -o-box-shadow: @hor @vert @blur @spread @color;
   box-shadow: @hor @vert @blur @spread @color;
 }
+
 .border-radius (@radius: 2px) {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+
 .image-replace (@height, @width, @url) {
   background-image: @url;
   height: @height;
@@ -98,6 +100,7 @@ a {
   &:hover   { color: lighten(@dark_green, 7%); }
   &:active  { color: black; }
 }
+
 canvas {
   background: @background_green;
   border-top:    1px solid darken(@base_gray,  7%);
@@ -106,6 +109,7 @@ canvas {
   border-bottom: 1px solid darken(@base_gray, 30%);
   .border-radius;
 }
+
 #coke {
   .image-replace(81px, 289px, url('images/coke.png'));
   margin: 32px auto 16px auto;
@@ -114,6 +118,7 @@ canvas {
   text-shadow: 1px 1px 0 lighten(@dark_green, 60%);
   text-align: center;
 }
+
 #subtitle{
   .image-replace(25px, 249px, url('images/a_canvas_game.png'));
   margin: 16px auto 16px auto;
@@ -122,6 +127,7 @@ canvas {
   text-shadow: 1px 1px 0 lighten(@dark_green, 60%);
   text-align: center;
 }
+
 #instructions {
   text-align: center;
   padding-top: 16px;
