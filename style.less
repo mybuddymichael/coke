@@ -56,6 +56,14 @@ table {
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+.image-replace (@height, @width, @url) {
+  background-image: @url;
+  height: @height;
+  width: @width;
+  text-indent: -9999px;
+  white-space: nowrap;
+  a { outline: none; }
+}
 
 // Variables
 @base_gray: #ccccc1;
