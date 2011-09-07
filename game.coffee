@@ -57,9 +57,6 @@ $(document).ready ->
 
 
   # Logic
-  textX = 50
-  textY = 50
-
   update = ->
     if keydown.space
       player.shoot()

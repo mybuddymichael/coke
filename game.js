@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, canvas, canvasElement, draw, keyName, player, textX, textY, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, canvas, canvasElement, draw, keyName, player, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasElement = $('canvas');
@@ -42,8 +42,6 @@
       return Player;
     })();
     player = new Player;
-    textX = 50;
-    textY = 50;
     update = function() {
       if (keydown.space) {
         player.shoot();
