@@ -11,10 +11,11 @@
     canvasElement = canvasObject.get(0);
     context = canvasElement.getContext('2d');
     FPS = 60;
-    setInterval((function() {
+    mainLoop = function() {
       update();
       draw();
-    }), 1000 / FPS);
+    };
+    setInterval(mainLoop, 1000 / FPS);
     Number.prototype.clamp = function(min, max) {
       return Math.min(Math.max(this, min), max);
     };

@@ -13,11 +13,12 @@ $(document).ready ->
 
   FPS = 60
 
-  setInterval(( ->
+  mainLoop = ->
     update()
     draw()
-    return),
-    1000/FPS)
+    return
+
+  setInterval(mainLoop, 1000/FPS)
 
 
   # Utility function
