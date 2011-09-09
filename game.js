@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, canvasElement, canvasObject, context, draw, keyName, player, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, animate, canvas, canvasElement, canvasObject, context, draw, keyName, mainLoop, player, recursiveAnimate, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasObject = $('canvas');
@@ -15,7 +15,17 @@
       update();
       draw();
     };
-    setInterval(mainLoop, 1000 / FPS);
+    animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
+    if (animate !== null) {
+      canvas = canvasElement.get(0);
+      recursiveAnimate = function() {
+        mainLoop();
+        animate(recursiveAnimate, canvas);
+      };
+      animate(recursiveAnimate, canvas);
+    } else {
+      setInterval(mainLoop, 1000 / FPS);
+    }
     Number.prototype.clamp = function(min, max) {
       return Math.min(Math.max(this, min), max);
     };

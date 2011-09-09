@@ -18,7 +18,25 @@ $(document).ready ->
     draw()
     return
 
-  setInterval(mainLoop, 1000/FPS)
+  animate = window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    null
+
+
+  if animate != null
+    canvas = canvasElement.get(0)
+
+    recursiveAnimate = ->
+      mainLoop()
+      animate(recursiveAnimate, canvas)
+      return
+
+    animate(recursiveAnimate, canvas)
+  else
+    setInterval(mainLoop, 1000/FPS)
 
 
   # Utility function
