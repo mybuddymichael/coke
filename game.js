@@ -1,14 +1,15 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, canvas, canvasElement, draw, keyName, player, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, canvasElement, canvasObject, context, draw, keyName, player, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
-    canvasElement = $('canvas');
-    canvasElement.attr({
+    canvasObject = $('canvas');
+    canvasObject.attr({
       height: CANVAS_HEIGHT,
       width: CANVAS_WIDTH
     });
-    canvas = canvasElement.get(0).getContext('2d');
+    canvasElement = canvasObject.get(0);
+    context = canvasElement.getContext('2d');
     FPS = 60;
     setInterval((function() {
       update();
@@ -36,8 +37,8 @@
         this.y = CANVAS_HEIGHT / 2 - this.height / 2;
       }
       Player.prototype.draw = function() {
-        canvas.fillStyle = this.color;
-        canvas.fillRect(this.x, this.y, this.width, this.height);
+        context.fillStyle = this.color;
+        context.fillRect(this.x, this.y, this.width, this.height);
       };
       return Player;
     })();
@@ -62,7 +63,7 @@
       player.y = player.y.clamp(0, CANVAS_HEIGHT - player.height);
     };
     draw = function() {
-      canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       player.draw();
     };
   });

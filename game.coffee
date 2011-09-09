@@ -4,10 +4,12 @@ $(document).ready ->
   CANVAS_WIDTH  = 480
   CANVAS_HEIGHT = 320
 
-  canvasElement = $('canvas')
-  canvasElement.attr({height: CANVAS_HEIGHT, width: CANVAS_WIDTH})
+  canvasObject = $('canvas')
+  canvasObject.attr({height: CANVAS_HEIGHT, width: CANVAS_WIDTH})
 
-  canvas = canvasElement.get(0).getContext('2d')
+  canvasElement = canvasObject.get(0)
+
+  context = canvasElement.getContext('2d')
 
   FPS = 60
 
@@ -49,8 +51,8 @@ $(document).ready ->
       @y = CANVAS_HEIGHT/2 - @height/2
 
     draw: ->
-      canvas.fillStyle = @color
-      canvas.fillRect(@x, @y, @width, @height)
+      context.fillStyle = @color
+      context.fillRect(@x, @y, @width, @height)
       return
 
   player = new Player
@@ -74,7 +76,7 @@ $(document).ready ->
     return
 
   draw = ->
-    canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+    context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     player.draw()
     return
 
