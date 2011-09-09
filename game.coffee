@@ -25,7 +25,6 @@ $(document).ready ->
     window.msRequestAnimationFrame ||
     null
 
-
   if animate != null
     canvas = canvasElement.get(0)
 
