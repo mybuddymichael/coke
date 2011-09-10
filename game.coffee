@@ -13,6 +13,8 @@ $(document).ready ->
 
   FPS = 60
 
+
+  # Animation
   mainLoop = ->
     update()
     draw()
