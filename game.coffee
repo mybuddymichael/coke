@@ -26,14 +26,12 @@ $(document).ready ->
     null
 
   if animate != null
-    canvas = canvasElement.get(0)
-
     recursiveAnimate = ->
       mainLoop()
-      animate(recursiveAnimate, canvas)
+      animate(recursiveAnimate, canvasElement)
       return
 
-    animate(recursiveAnimate, canvas)
+    animate(recursiveAnimate, canvasElement)
   else
     setInterval(mainLoop, 1000/FPS)
 
