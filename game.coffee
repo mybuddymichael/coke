@@ -62,15 +62,15 @@ $(document).ready ->
   # Player
   class Player
     constructor: ->
-      @color = "#5b6449"
       @width = 32
       @height = 32
       @x = CANVAS_WIDTH/2 - @width/2
       @y = CANVAS_HEIGHT/2 - @height/2
+      @image = new Image
+      @image.src = 'player.png'
 
     draw: ->
-      context.fillStyle = @color
-      context.fillRect(@x, @y, @width, @height)
+      context.drawImage(@image, @x, @y)
       return
 
   player = new Player

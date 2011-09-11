@@ -40,15 +40,15 @@
     });
     Player = (function() {
       function Player() {
-        this.color = "#5b6449";
         this.width = 32;
         this.height = 32;
         this.x = CANVAS_WIDTH / 2 - this.width / 2;
         this.y = CANVAS_HEIGHT / 2 - this.height / 2;
+        this.image = new Image;
+        this.image.src = 'player.png';
       }
       Player.prototype.draw = function() {
-        context.fillStyle = this.color;
-        context.fillRect(this.x, this.y, this.width, this.height);
+        context.drawImage(this.image, this.x, this.y);
       };
       return Player;
     })();
