@@ -46,6 +46,7 @@
         this.y = CANVAS_HEIGHT / 2 - this.height / 2;
         this.image = new Image;
         this.image.src = 'player.png';
+        this.direction = 'down';
       }
       Player.prototype.draw = function() {
         switch (this.direction) {

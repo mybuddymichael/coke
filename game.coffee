@@ -68,6 +68,7 @@ $(document).ready ->
       @y = CANVAS_HEIGHT/2 - @height/2
       @image = new Image
       @image.src = 'player.png'
+      @direction = 'down'
 
     draw: ->
       switch @direction
