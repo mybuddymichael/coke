@@ -1,3 +1,3 @@
 guard 'livereload' do
-  watch(%r{.+})
+  watch(%r{^.+\.(coffee|js|less|html)$})
 end
