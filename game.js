@@ -54,9 +54,6 @@
     })();
     player = new Player;
     update = function() {
-      if (keydown.space) {
-        player.shoot();
-      }
       if (keydown.left) {
         player.x -= 3;
       }

@@ -78,8 +78,6 @@ $(document).ready ->
 
   # Logic
   update = ->
-    if keydown.space
-      player.shoot()
     if keydown.left
       player.x -= 3
     if keydown.right
