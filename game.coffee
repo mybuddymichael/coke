@@ -76,6 +76,7 @@ $(document).ready ->
         when 'down'  then @imageX = 32;
         when 'left'  then @imageX = 64;
         when 'right' then @imageX = 96;
+
       context.drawImage(@image, @x, @y)
       return
 
