@@ -62,7 +62,7 @@
           case 'right':
             this.imageX = 96;
         }
-        context.drawImage(this.image, this.x, this.y);
+        context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
       };
       return Player;
     })();

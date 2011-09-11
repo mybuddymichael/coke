@@ -77,7 +77,7 @@ $(document).ready ->
         when 'left'  then @imageX = 64;
         when 'right' then @imageX = 96;
 
-      context.drawImage(@image, @x, @y)
+      context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
       return
 
   player = new Player
