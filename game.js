@@ -45,7 +45,7 @@
         this.x = CANVAS_WIDTH / 2 - this.width / 2;
         this.y = CANVAS_HEIGHT / 2 - this.height / 2;
         this.image = new Image;
-        this.image.src = 'player.png';
+        this.image.src = 'images/player.png';
         this.direction = 'down';
       }
       Player.prototype.draw = function() {

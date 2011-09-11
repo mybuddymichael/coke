@@ -67,7 +67,7 @@ $(document).ready ->
       @x = CANVAS_WIDTH/2 - @width/2
       @y = CANVAS_HEIGHT/2 - @height/2
       @image = new Image
-      @image.src = 'player.png'
+      @image.src = 'images/player.png'
       @direction = 'down'
 
     draw: ->
