@@ -70,6 +70,11 @@ $(document).ready ->
       @image.src = 'player.png'
 
     draw: ->
+      switch @direction
+        when 'up'    then @imageX = 0;
+        when 'down'  then @imageX = 32;
+        when 'left'  then @imageX = 64;
+        when 'right' then @imageX = 96;
       context.drawImage(@image, @x, @y)
       return
 

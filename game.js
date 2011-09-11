@@ -48,6 +48,19 @@
         this.image.src = 'player.png';
       }
       Player.prototype.draw = function() {
+        switch (this.direction) {
+          case 'up':
+            this.imageX = 0;
+            break;
+          case 'down':
+            this.imageX = 32;
+            break;
+          case 'left':
+            this.imageX = 64;
+            break;
+          case 'right':
+            this.imageX = 96;
+        }
         context.drawImage(this.image, this.x, this.y);
       };
       return Player;
