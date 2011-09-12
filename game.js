@@ -48,6 +48,26 @@
         this.image.src = 'images/player.png';
         this.direction = 'down';
       }
+      Player.prototype.update = function() {
+        if (keydown.left) {
+          this.x -= 3;
+          this.direction = 'left';
+        }
+        if (keydown.right) {
+          this.x += 3;
+          this.direction = 'right';
+        }
+        if (keydown.up) {
+          this.y -= 3;
+          this.direction = 'up';
+        }
+        if (keydown.down) {
+          this.y += 3;
+          this.direction = 'down';
+        }
+        this.x = this.x.clamp(0, CANVAS_WIDTH - this.width);
+        this.y = this.y.clamp(0, CANVAS_HEIGHT - this.height);
+      };
       Player.prototype.draw = function() {
         switch (this.direction) {
           case 'up':
@@ -68,24 +88,7 @@
     })();
     player = new Player;
     update = function() {
-      if (keydown.left) {
-        player.x -= 3;
-        player.direction = 'left';
-      }
-      if (keydown.right) {
-        player.x += 3;
-        player.direction = 'right';
-      }
-      if (keydown.up) {
-        player.y -= 3;
-        player.direction = 'up';
-      }
-      if (keydown.down) {
-        player.y += 3;
-        player.direction = 'down';
-      }
-      player.x = player.x.clamp(0, CANVAS_WIDTH - player.width);
-      player.y = player.y.clamp(0, CANVAS_HEIGHT - player.height);
+      player.update();
     };
     draw = function() {
       context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);

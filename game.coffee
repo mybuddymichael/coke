@@ -70,6 +70,24 @@ $(document).ready ->
       @image.src = 'images/player.png'
       @direction = 'down'
 
+    update: ->
+      if keydown.left
+        @x -= 3
+        @direction = 'left'
+      if keydown.right
+        @x += 3
+        @direction = 'right'
+      if keydown.up
+        @y -= 3
+        @direction = 'up'
+      if keydown.down
+        @y += 3
+        @direction = 'down'
+
+      @x = @x.clamp(0, CANVAS_WIDTH - @width)
+      @y = @y.clamp(0, CANVAS_HEIGHT - @height)
+      return
+
     draw: ->
       switch @direction
         when 'up'    then @imageX = 0;
@@ -85,21 +103,7 @@ $(document).ready ->
 
   # Logic
   update = ->
-    if keydown.left
-      player.x -= 3
-      player.direction = 'left'
-    if keydown.right
-      player.x += 3
-      player.direction = 'right'
-    if keydown.up
-      player.y -= 3
-      player.direction = 'up'
-    if keydown.down
-      player.y += 3
-      player.direction = 'down'
-
-    player.x = player.x.clamp(0, CANVAS_WIDTH - player.width)
-    player.y = player.y.clamp(0, CANVAS_HEIGHT - player.height)
+    player.update()
     return
 
   draw = ->
