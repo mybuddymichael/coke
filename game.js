@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, animate, canvasElement, canvasObject, context, draw, keyName, mainLoop, player, recursiveAnimate, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, animate, canvasElement, canvasObject, context, controls, draw, keysPressed, mainLoop, player, recursiveAnimate, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasObject = $('canvas');
@@ -28,15 +28,40 @@
     Number.prototype.clamp = function(min, max) {
       return Math.min(Math.max(this, min), max);
     };
-    window.keydown = {};
-    keyName = function(event) {
-      return jQuery.hotkeys.specialKeys[event.which] || String.fromCharCode(event.which).toLowerCase();
+    Array.prototype.last = function() {
+      return this[this.length - 1];
     };
-    $(document).bind("keydown", function(event) {
-      keydown[keyName(event)] = true;
+    Array.prototype.remove = function(element) {
+      var t, _ref;
+      if ((t = this.indexOf(element)) > -1) {
+        return ([].splice.apply(this, [t, t - t + 1].concat(_ref = [])), _ref);
+      }
+    };
+    controls = ['up', 'down', 'left', 'right'];
+    keysPressed = [];
+    $(document).bind('keydown', 'up', function() {
+      keysPressed.push('up');
     });
-    $(document).bind("keyup", function(event) {
-      keydown[keyName(event)] = false;
+    $(document).bind('keydown', 'down', function() {
+      keysPressed.push('down');
+    });
+    $(document).bind('keydown', 'left', function() {
+      keysPressed.push('left');
+    });
+    $(document).bind('keydown', 'right', function() {
+      keysPressed.push('right');
+    });
+    $(document).bind('keyup', 'up', function() {
+      keysPressed.remove('up');
+    });
+    $(document).bind('keyup', 'down', function() {
+      keysPressed.remove('down');
+    });
+    $(document).bind('keyup', 'left', function() {
+      keysPressed.remove('left');
+    });
+    $(document).bind('keyup', 'right', function() {
+      keysPressed.remove('right');
     });
     Player = (function() {
       function Player() {
@@ -49,21 +74,25 @@
         this.direction = 'down';
       }
       Player.prototype.update = function() {
-        if (keydown.left) {
-          this.x -= 3;
-          this.direction = 'left';
-        }
-        if (keydown.right) {
-          this.x += 3;
-          this.direction = 'right';
-        }
-        if (keydown.up) {
-          this.y -= 3;
-          this.direction = 'up';
-        }
-        if (keydown.down) {
-          this.y += 3;
-          this.direction = 'down';
+        switch (keysPressed.last()) {
+          case 'up':
+            this.y -= 3;
+            this.direction = 'up';
+            break;
+          case 'down':
+            this.y += 3;
+            this.direction = 'down';
+            break;
+          case 'left':
+            this.x -= 3;
+            this.direction = 'left';
+            break;
+          case 'right':
+            this.x += 3;
+            this.direction = 'right';
+            break;
+          default:
+            null;
         }
         this.x = this.x.clamp(0, CANVAS_WIDTH - this.width);
         this.y = this.y.clamp(0, CANVAS_HEIGHT - this.height);

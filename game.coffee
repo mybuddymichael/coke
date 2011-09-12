@@ -38,25 +38,38 @@ $(document).ready ->
     setInterval(mainLoop, 1000/FPS)
 
 
-  # Utility function
+  # Utility functions
   Number::clamp = (min, max) ->
     Math.min(Math.max(this, min), max)
 
+  Array::last = ->
+    @[@length - 1]
+
+  Array::remove = (element) ->
+    if (t = @indexOf(element)) > -1
+      @[t..t] = []
+
 
   # Key handling
-  window.keydown = {}
+  controls = ['up', 'down', 'left', 'right']
+  keysPressed = []
 
-  keyName = (event) ->
-    return jQuery.hotkeys.specialKeys[event.which] ||
-      String.fromCharCode(event.which).toLowerCase()
-
-  $(document).bind("keydown", (event) ->
-    keydown[keyName(event)] = true
-    return)
-
-  $(document).bind("keyup", (event) ->
-    keydown[keyName(event)] = false
-    return)
+  $(document).bind('keydown', 'up', ->
+    keysPressed.push('up'); return)
+  $(document).bind('keydown', 'down', ->
+    keysPressed.push('down'); return)
+  $(document).bind('keydown', 'left', ->
+    keysPressed.push('left'); return)
+  $(document).bind('keydown', 'right', ->
+    keysPressed.push('right'); return)
+  $(document).bind('keyup', 'up', ->
+    keysPressed.remove('up'); return)
+  $(document).bind('keyup', 'down', ->
+    keysPressed.remove('down'); return)
+  $(document).bind('keyup', 'left', ->
+    keysPressed.remove('left'); return)
+  $(document).bind('keyup', 'right', ->
+    keysPressed.remove('right'); return)
 
 
   # Player
@@ -71,18 +84,21 @@ $(document).ready ->
       @direction = 'down'
 
     update: ->
-      if keydown.left
-        @x -= 3
-        @direction = 'left'
-      if keydown.right
-        @x += 3
-        @direction = 'right'
-      if keydown.up
-        @y -= 3
-        @direction = 'up'
-      if keydown.down
-        @y += 3
-        @direction = 'down'
+      switch keysPressed.last()
+        when 'up'
+          @y -= 3
+          @direction = 'up'
+        when 'down'
+          @y += 3
+          @direction = 'down'
+        when 'left'
+          @x -= 3
+          @direction = 'left'
+        when 'right'
+          @x += 3
+          @direction = 'right'
+        else
+          null
 
       @x = @x.clamp(0, CANVAS_WIDTH - @width)
       @y = @y.clamp(0, CANVAS_HEIGHT - @height)
