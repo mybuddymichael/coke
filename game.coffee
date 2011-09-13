@@ -96,8 +96,6 @@ $(document).ready ->
         when 'right'
           @x += 3
           @direction = 'right'
-        else
-          null
 
       @x = @x.clamp(0, CANVAS_WIDTH - @width)
       @y = @y.clamp(0, CANVAS_HEIGHT - @height)

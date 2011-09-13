@@ -95,9 +95,6 @@
           case 'right':
             this.x += 3;
             this.direction = 'right';
-            break;
-          default:
-            null;
         }
         this.x = this.x.clamp(0, CANVAS_WIDTH - this.width);
         this.y = this.y.clamp(0, CANVAS_HEIGHT - this.height);
