@@ -45,9 +45,8 @@ $(document).ready ->
   Array::last = ->
     @[@length - 1]
 
-  Array::remove = (element) ->
-    if (t = @indexOf(element)) > -1
-      @[t..t] = []
+  Array::filterOutValue = (v) ->
+    x for x in @ when x!=v
 
 
   # Key handling
@@ -63,13 +62,13 @@ $(document).ready ->
   $(document).bind('keydown', 'right', ->
     keysPressed.push('right'); return)
   $(document).bind('keyup', 'up', ->
-    keysPressed.remove('up'); return)
+    keysPressed = keysPressed.filterOutValue('up'); return)
   $(document).bind('keyup', 'down', ->
-    keysPressed.remove('down'); return)
+    keysPressed = keysPressed.filterOutValue('down'); return)
   $(document).bind('keyup', 'left', ->
-    keysPressed.remove('left'); return)
+    keysPressed = keysPressed.filterOutValue('left'); return)
   $(document).bind('keyup', 'right', ->
-    keysPressed.remove('right'); return)
+    keysPressed = keysPressed.filterOutValue('right'); return)
 
 
   # Player

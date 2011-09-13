@@ -31,11 +31,16 @@
     Array.prototype.last = function() {
       return this[this.length - 1];
     };
-    Array.prototype.remove = function(element) {
-      var t, _ref;
-      if ((t = this.indexOf(element)) > -1) {
-        return ([].splice.apply(this, [t, t - t + 1].concat(_ref = [])), _ref);
+    Array.prototype.filterOutValue = function(v) {
+      var x, _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = this.length; _i < _len; _i++) {
+        x = this[_i];
+        if (x !== v) {
+          _results.push(x);
+        }
       }
+      return _results;
     };
     controls = ['up', 'down', 'left', 'right'];
     keysPressed = [];
@@ -52,16 +57,16 @@
       keysPressed.push('right');
     });
     $(document).bind('keyup', 'up', function() {
-      keysPressed.remove('up');
+      keysPressed = keysPressed.filterOutValue('up');
     });
     $(document).bind('keyup', 'down', function() {
-      keysPressed.remove('down');
+      keysPressed = keysPressed.filterOutValue('down');
     });
     $(document).bind('keyup', 'left', function() {
-      keysPressed.remove('left');
+      keysPressed = keysPressed.filterOutValue('left');
     });
     $(document).bind('keyup', 'right', function() {
-      keysPressed.remove('right');
+      keysPressed = keysPressed.filterOutValue('right');
     });
     Player = (function() {
       function Player() {
