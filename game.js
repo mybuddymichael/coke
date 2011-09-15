@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, animate, canvasElement, canvasObject, context, controls, draw, keysPressed, mainLoop, player, recursiveAnimate, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, animate, canvasElement, canvasObject, context, draw, keysPressed, mainLoop, player, recursiveAnimate, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasObject = $('canvas');
@@ -42,7 +42,6 @@
       }
       return _results;
     };
-    controls = ['up', 'down', 'left', 'right'];
     keysPressed = [];
     $(document).bind('keydown', 'up', function() {
       keysPressed.push('up');

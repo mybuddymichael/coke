@@ -50,7 +50,6 @@ $(document).ready ->
 
 
   # Key handling
-  controls = ['up', 'down', 'left', 'right']
   keysPressed = []
 
   $(document).bind('keydown', 'up', ->
