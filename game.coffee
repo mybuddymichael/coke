@@ -81,6 +81,7 @@ $(document).ready ->
       @image.src = 'images/player.png'
       @direction = 'down'
       @locked = false
+      @movementFactor = 2
 
     update: ->
       if @y%32 != 0 or @x%32 != 0
@@ -92,16 +93,16 @@ $(document).ready ->
 
       switch @keyPress
         when 'up'
-          @y -= 2
+          @y -= @movementFactor
           @direction = 'up'
         when 'down'
-          @y += 2
+          @y += @movementFactor
           @direction = 'down'
         when 'left'
-          @x -= 2
+          @x -= @movementFactor
           @direction = 'left'
         when 'right'
-          @x += 2
+          @x += @movementFactor
           @direction = 'right'
 
       @x = @x.clamp(0, CANVAS_WIDTH - @width)

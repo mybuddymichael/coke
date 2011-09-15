@@ -77,6 +77,7 @@
         this.image.src = 'images/player.png';
         this.direction = 'down';
         this.locked = false;
+        this.movementFactor = 2;
       }
       Player.prototype.update = function() {
         if (this.y % 32 !== 0 || this.x % 32 !== 0) {
@@ -89,19 +90,19 @@
         }
         switch (this.keyPress) {
           case 'up':
-            this.y -= 2;
+            this.y -= this.movementFactor;
             this.direction = 'up';
             break;
           case 'down':
-            this.y += 2;
+            this.y += this.movementFactor;
             this.direction = 'down';
             break;
           case 'left':
-            this.x -= 2;
+            this.x -= this.movementFactor;
             this.direction = 'left';
             break;
           case 'right':
-            this.x += 2;
+            this.x += this.movementFactor;
             this.direction = 'right';
         }
         this.x = this.x.clamp(0, CANVAS_WIDTH - this.width);
