@@ -76,8 +76,8 @@ $(document).ready ->
     constructor: ->
       @width = 32
       @height = 32
-      @x = CANVAS_WIDTH/2 - @width/2
-      @y = CANVAS_HEIGHT/2 - @height/2
+      @x = 32*7
+      @y = 32*5
       @image = new Image
       @image.src = 'images/player.png'
       @direction = 'down'

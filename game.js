@@ -72,8 +72,8 @@
       function Player() {
         this.width = 32;
         this.height = 32;
-        this.x = CANVAS_WIDTH / 2 - this.width / 2;
-        this.y = CANVAS_HEIGHT / 2 - this.height / 2;
+        this.x = 32 * 7;
+        this.y = 32 * 5;
         this.image = new Image;
         this.image.src = 'images/player.png';
         this.direction = 'down';
