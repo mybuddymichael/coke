@@ -170,18 +170,21 @@ $(document).ready ->
       return
 
 
-  npc = new NPC
+  npcA = new NPC
+  npcList = [npcA]
 
   # Logic
   update = ->
     player.update()
-    npc.update()
+    for npc in npcList
+      npc.update()
     return
 
   draw = ->
     context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     player.draw()
-    npc.draw()
+    for npc in npcList
+      npc.draw()
     return
 
   return

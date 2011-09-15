@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, NPC, Player, animate, canvasElement, canvasObject, context, draw, keysPressed, mainLoop, npc, player, recursiveAnimate, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, NPC, Player, animate, canvasElement, canvasObject, context, draw, keysPressed, mainLoop, npcA, npcList, player, recursiveAnimate, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasObject = $('canvas');
@@ -182,15 +182,24 @@
       };
       return NPC;
     })();
-    npc = new NPC;
+    npcA = new NPC;
+    npcList = [npcA];
     update = function() {
+      var npc, _i, _len;
       player.update();
-      npc.update();
+      for (_i = 0, _len = npcList.length; _i < _len; _i++) {
+        npc = npcList[_i];
+        npc.update();
+      }
     };
     draw = function() {
+      var npc, _i, _len;
       context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       player.draw();
-      npc.draw();
+      for (_i = 0, _len = npcList.length; _i < _len; _i++) {
+        npc = npcList[_i];
+        npc.draw();
+      }
     };
   });
 }).call(this);
