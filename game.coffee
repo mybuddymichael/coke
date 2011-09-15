@@ -85,16 +85,16 @@ $(document).ready ->
     update: ->
       switch keysPressed.last()
         when 'up'
-          @y -= 3
+          @y -= 2
           @direction = 'up'
         when 'down'
-          @y += 3
+          @y += 2
           @direction = 'down'
         when 'left'
-          @x -= 3
+          @x -= 2
           @direction = 'left'
         when 'right'
-          @x += 3
+          @x += 2
           @direction = 'right'
 
       @x = @x.clamp(0, CANVAS_WIDTH - @width)

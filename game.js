@@ -81,19 +81,19 @@
       Player.prototype.update = function() {
         switch (keysPressed.last()) {
           case 'up':
-            this.y -= 3;
+            this.y -= 2;
             this.direction = 'up';
             break;
           case 'down':
-            this.y += 3;
+            this.y += 2;
             this.direction = 'down';
             break;
           case 'left':
-            this.x -= 3;
+            this.x -= 2;
             this.direction = 'left';
             break;
           case 'right':
-            this.x += 3;
+            this.x += 2;
             this.direction = 'right';
         }
         this.x = this.x.clamp(0, CANVAS_WIDTH - this.width);
