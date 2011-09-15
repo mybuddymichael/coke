@@ -77,9 +77,18 @@
         this.image = new Image;
         this.image.src = 'images/player.png';
         this.direction = 'down';
+        this.locked = false;
       }
       Player.prototype.update = function() {
-        switch (keysPressed.last()) {
+        if (this.y % 32 !== 0 || this.x % 32 !== 0) {
+          this.locked = true;
+        } else {
+          this.locked = false;
+        }
+        if (!this.locked) {
+          this.keyPress = keysPressed.last();
+        }
+        switch (this.keyPress) {
           case 'up':
             this.y -= 2;
             this.direction = 'up';

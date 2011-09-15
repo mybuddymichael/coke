@@ -81,9 +81,17 @@ $(document).ready ->
       @image = new Image
       @image.src = 'images/player.png'
       @direction = 'down'
+      @locked = false
 
     update: ->
-      switch keysPressed.last()
+      if @y%32 != 0 or @x%32 != 0
+        @locked = true
+      else
+        @locked = false
+
+      @keyPress = keysPressed.last() unless @locked
+
+      switch @keyPress
         when 'up'
           @y -= 2
           @direction = 'up'
