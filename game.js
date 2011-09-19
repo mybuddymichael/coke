@@ -137,7 +137,7 @@
         this.image.src = 'images/player.png';
         this.direction = 'down';
         this.locked = false;
-        this.movementFactor = 1;
+        this.movementFactor = 0.5;
       }
       NPC.prototype.update = function() {
         if (this.y % 32 !== 0 || this.x % 32 !== 0) {

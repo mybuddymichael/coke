@@ -131,7 +131,7 @@ $(document).ready ->
       @image.src = 'images/player.png'
       @direction = 'down'
       @locked = false
-      @movementFactor = 1
+      @movementFactor = 0.5
 
     update: ->
       if @y%32 != 0 or @x%32 != 0
