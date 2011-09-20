@@ -112,7 +112,7 @@
         var _ref, _ref2, _ref3, _ref4, _ref5, _ref6;
         switch (this.direction) {
           case 'up':
-            if ((1 <= (_ref = this.y % 32) && _ref <= 16)) {
+            if ((17 <= (_ref = this.y % 32) && _ref <= 31)) {
               if ((0 <= (_ref2 = this.y % 64) && _ref2 <= 31)) {
                 this.imageX = 128;
               } else {
@@ -123,7 +123,7 @@
             }
             break;
           case 'down':
-            if ((17 <= (_ref3 = this.y % 32) && _ref3 <= 31)) {
+            if ((1 <= (_ref3 = this.y % 32) && _ref3 <= 16)) {
               if ((32 <= (_ref4 = this.y % 64) && _ref4 <= 63)) {
                 this.imageX = 192;
               } else {

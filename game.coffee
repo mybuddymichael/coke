@@ -112,7 +112,7 @@ $(document).ready ->
     draw: ->
       switch @direction
         when 'up'
-          if 1 <= @y%32 <= 16
+          if 17 <= @y%32 <= 31
             if 0 <= @y%64 <= 31
               @imageX = 128
             else
@@ -120,7 +120,7 @@ $(document).ready ->
           else
             @imageX = 0
         when 'down'
-          if 17 <= @y%32 <= 31
+          if 1 <= @y%32 <= 16
             if 32 <= @y%64 <= 63
               @imageX = 192
             else
