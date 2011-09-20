@@ -144,69 +144,14 @@ $(document).ready ->
   player = new Player
 
 
-  class NPC
-    constructor: ->
-      @width = 32
-      @height = 32
-      @x = 0
-      @y = 0
-      @image = new Image
-      @image.src = 'images/player.png'
-      @direction = 'down'
-      @locked = false
-      @movementFactor = 0.5
-
-    update: ->
-      if @y%32 != 0 or @x%32 != 0
-        @locked = true
-      else
-        @locked = false
-
-      unless @locked
-        @randomNumber = Math.floor(Math.random()*400)
-
-      if @randomNumber == 0
-        @y -= @movementFactor
-        @direction = 'up'
-      else if @randomNumber == 1
-        @y += @movementFactor
-        @direction = 'down'
-      else if @randomNumber == 2
-        @x -= @movementFactor
-        @direction = 'left'
-      else if @randomNumber == 3
-        @x += @movementFactor
-        @direction = 'right'
-
-      @x = @x.clamp(0, CANVAS_WIDTH - @width)
-      @y = @y.clamp(0, CANVAS_HEIGHT - @height)
-      return
-
-    draw: ->
-      switch @direction
-        when 'up'    then @imageX = 0;
-        when 'down'  then @imageX = 32;
-        when 'left'  then @imageX = 64;
-        when 'right' then @imageX = 96;
-
-      context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
-      return
-
-
-  npcList = []
-
   # Logic
   update = ->
     player.update()
-    for npc in npcList
-      npc.update()
     return
 
   draw = ->
     context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     player.draw()
-    for npc in npcList
-      npc.draw()
     return
 
   return
