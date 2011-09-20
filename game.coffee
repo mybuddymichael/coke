@@ -70,7 +70,7 @@ $(document).ready ->
     keysPressed = keysPressed.filterOutValue('right'); return)
 
 
-  # Player
+  # Class definitions
   class Player
     constructor: ->
       @width = 32
@@ -111,15 +111,38 @@ $(document).ready ->
 
     draw: ->
       switch @direction
-        when 'up'    then @imageX = 0;
-        when 'down'  then @imageX = 32;
-        when 'left'  then @imageX = 64;
-        when 'right' then @imageX = 96;
+        when 'up'
+          if 1 <= @y%32 <= 16
+            if 0 <= @y%64 <= 31
+              @imageX = 128
+            else
+              @imageX = 160
+          else
+            @imageX = 0
+        when 'down'
+          if 17 <= @y%32 <= 31
+            if 32 <= @y%64 <= 63
+              @imageX = 192
+            else
+              @imageX = 224
+          else
+            @imageX = 32
+        when 'left'
+          if 17 <= @x%32 <= 31
+            @imageX = 256
+          else
+            @imageX = 64
+        when 'right'
+          if 1 <= @x%32 <= 16
+            @imageX = 288
+          else
+            @imageX = 96
 
       context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
       return
 
   player = new Player
+
 
   class NPC
     constructor: ->
@@ -170,8 +193,7 @@ $(document).ready ->
       return
 
 
-  npcA = new NPC
-  npcList = [npcA]
+  npcList = []
 
   # Logic
   update = ->

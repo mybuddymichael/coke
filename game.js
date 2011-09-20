@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, NPC, Player, animate, canvasElement, canvasObject, context, draw, keysPressed, mainLoop, npcA, npcList, player, recursiveAnimate, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, NPC, Player, animate, canvasElement, canvasObject, context, draw, keysPressed, mainLoop, npcList, player, recursiveAnimate, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasObject = $('canvas');
@@ -109,18 +109,43 @@
         this.y = this.y.clamp(0, CANVAS_HEIGHT - this.height);
       };
       Player.prototype.draw = function() {
+        var _ref, _ref2, _ref3, _ref4, _ref5, _ref6;
         switch (this.direction) {
           case 'up':
-            this.imageX = 0;
+            if ((1 <= (_ref = this.y % 32) && _ref <= 16)) {
+              if ((0 <= (_ref2 = this.y % 64) && _ref2 <= 31)) {
+                this.imageX = 128;
+              } else {
+                this.imageX = 160;
+              }
+            } else {
+              this.imageX = 0;
+            }
             break;
           case 'down':
-            this.imageX = 32;
+            if ((17 <= (_ref3 = this.y % 32) && _ref3 <= 31)) {
+              if ((32 <= (_ref4 = this.y % 64) && _ref4 <= 63)) {
+                this.imageX = 192;
+              } else {
+                this.imageX = 224;
+              }
+            } else {
+              this.imageX = 32;
+            }
             break;
           case 'left':
-            this.imageX = 64;
+            if ((17 <= (_ref5 = this.x % 32) && _ref5 <= 31)) {
+              this.imageX = 256;
+            } else {
+              this.imageX = 64;
+            }
             break;
           case 'right':
-            this.imageX = 96;
+            if ((1 <= (_ref6 = this.x % 32) && _ref6 <= 16)) {
+              this.imageX = 288;
+            } else {
+              this.imageX = 96;
+            }
         }
         context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
       };
@@ -182,8 +207,7 @@
       };
       return NPC;
     })();
-    npcA = new NPC;
-    npcList = [npcA];
+    npcList = [];
     update = function() {
       var npc, _i, _len;
       player.update();
