@@ -12,9 +12,9 @@ in-sync with `master`. Usage requires a modern browser with support for the
 
 ## Local installation
 
-    git clone https://github.com/mybuddymichael/coke.git
-    cd coke
-    open index.html
+    $ git clone https://github.com/mybuddymichael/coke.git
+    $ cd coke
+    $ open index.html
 
 ## On versioning
 
