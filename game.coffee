@@ -45,30 +45,30 @@ $(document).ready ->
   Array::last = ->
     @[@length - 1]
 
-  Array::filterOutValue = (v) ->
+  Array::filter = (v) ->
     x for x in @ when x!=v
 
 
   # Key handling
+  controls = {
+    'w': 'up'
+    's': 'down'
+    'a': 'left'
+    'd': 'right'
+  }
+
   keysPressed = []
 
-  $(document).bind('keydown', 'up', ->
-    keysPressed.push('up'); return)
-  $(document).bind('keydown', 'down', ->
-    keysPressed.push('down'); return)
-  $(document).bind('keydown', 'left', ->
-    keysPressed.push('left'); return)
-  $(document).bind('keydown', 'right', ->
-    keysPressed.push('right'); return)
-  $(document).bind('keyup', 'up', ->
-    keysPressed = keysPressed.filterOutValue('up'); return)
-  $(document).bind('keyup', 'down', ->
-    keysPressed = keysPressed.filterOutValue('down'); return)
-  $(document).bind('keyup', 'left', ->
-    keysPressed = keysPressed.filterOutValue('left'); return)
-  $(document).bind('keyup', 'right', ->
-    keysPressed = keysPressed.filterOutValue('right'); return)
+  addToKeyPressArray = (v) ->
+    return ->
+      keysPressed.push(v); return
+  removeFromKeyPressArray = (v) ->
+    return ->
+      keysPressed = keysPressed.filter(v); return
 
+  for control, direction of controls
+    $(document).bind('keydown', control, addToKeyPressArray(direction))
+    $(document).bind('keyup', control, removeFromKeyPressArray(direction))
 
   # Class definitions
   class Player

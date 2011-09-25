@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, animate, canvasElement, canvasObject, context, draw, keysPressed, mainLoop, player, recursiveAnimate, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, addToKeyPressArray, animate, canvasElement, canvasObject, context, control, controls, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, removeFromKeyPressArray, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     canvasObject = $('canvas');
@@ -31,7 +31,7 @@
     Array.prototype.last = function() {
       return this[this.length - 1];
     };
-    Array.prototype.filterOutValue = function(v) {
+    Array.prototype.filter = function(v) {
       var x, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = this.length; _i < _len; _i++) {
@@ -42,31 +42,28 @@
       }
       return _results;
     };
+    controls = {
+      'w': 'up',
+      's': 'down',
+      'a': 'left',
+      'd': 'right'
+    };
     keysPressed = [];
-    $(document).bind('keydown', 'up', function() {
-      keysPressed.push('up');
-    });
-    $(document).bind('keydown', 'down', function() {
-      keysPressed.push('down');
-    });
-    $(document).bind('keydown', 'left', function() {
-      keysPressed.push('left');
-    });
-    $(document).bind('keydown', 'right', function() {
-      keysPressed.push('right');
-    });
-    $(document).bind('keyup', 'up', function() {
-      keysPressed = keysPressed.filterOutValue('up');
-    });
-    $(document).bind('keyup', 'down', function() {
-      keysPressed = keysPressed.filterOutValue('down');
-    });
-    $(document).bind('keyup', 'left', function() {
-      keysPressed = keysPressed.filterOutValue('left');
-    });
-    $(document).bind('keyup', 'right', function() {
-      keysPressed = keysPressed.filterOutValue('right');
-    });
+    addToKeyPressArray = function(v) {
+      return function() {
+        keysPressed.push(v);
+      };
+    };
+    removeFromKeyPressArray = function(v) {
+      return function() {
+        keysPressed = keysPressed.filter(v);
+      };
+    };
+    for (control in controls) {
+      direction = controls[control];
+      $(document).bind('keydown', control, addToKeyPressArray(direction));
+      $(document).bind('keyup', control, removeFromKeyPressArray(direction));
+    }
     Player = (function() {
       function Player() {
         this.width = 32;
