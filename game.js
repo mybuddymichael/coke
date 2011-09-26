@@ -1,30 +1,20 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, FPS, Player, addToKeyPressArray, animate, canvasElement, canvasObject, context, control, controls, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, removeFromKeyPressArray, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, addToKeyPressArray, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, removeFromKeyPressArray, update;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
-    canvasObject = $('canvas');
-    canvasObject.attr({
-      height: CANVAS_HEIGHT,
-      width: CANVAS_WIDTH
-    });
-    canvasElement = canvasObject.get(0);
-    context = canvasElement.getContext('2d');
+    GRID = 32;
     FPS = 60;
-    mainLoop = function() {
-      update();
-      draw();
+    CONTROLS = {
+      w: 'up',
+      s: 'down',
+      a: 'left',
+      d: 'right',
+      up: 'up',
+      down: 'down',
+      left: 'left',
+      right: 'right'
     };
-    animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
-    if (animate !== null) {
-      recursiveAnimate = function() {
-        mainLoop();
-        animate(recursiveAnimate, canvasElement);
-      };
-      animate(recursiveAnimate, canvasElement);
-    } else {
-      setInterval(mainLoop, 1000 / FPS);
-    }
     Number.prototype.clamp = function(min, max) {
       return Math.min(Math.max(this, min), max);
     };
@@ -42,12 +32,28 @@
       }
       return _results;
     };
-    controls = {
-      'w': 'up',
-      's': 'down',
-      'a': 'left',
-      'd': 'right'
+    canvasObject = $('canvas');
+    canvasObject.attr({
+      height: CANVAS_HEIGHT,
+      width: CANVAS_WIDTH
+    });
+    canvasElement = canvasObject.get(0);
+    context = canvasElement.getContext('2d');
+    mainLoop = function() {
+      update();
+      draw();
+      return true;
     };
+    animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
+    if (animate !== null) {
+      recursiveAnimate = function() {
+        mainLoop();
+        animate(recursiveAnimate, canvasElement);
+      };
+      animate(recursiveAnimate, canvasElement);
+    } else {
+      setInterval(mainLoop, 1000 / FPS);
+    }
     keysPressed = [];
     addToKeyPressArray = function(v) {
       return function() {
@@ -59,17 +65,15 @@
         keysPressed = keysPressed.filter(v);
       };
     };
-    for (control in controls) {
-      direction = controls[control];
+    for (control in CONTROLS) {
+      direction = CONTROLS[control];
       $(document).bind('keydown', control, addToKeyPressArray(direction));
       $(document).bind('keyup', control, removeFromKeyPressArray(direction));
     }
     Player = (function() {
       function Player() {
-        this.width = 32;
-        this.height = 32;
-        this.x = 32 * 7;
-        this.y = 32 * 5;
+        this.x = GRID * 7;
+        this.y = GRID * 5;
         this.image = new Image;
         this.image.src = 'images/player.png';
         this.direction = 'down';
@@ -77,7 +81,7 @@
         this.movementFactor = 2;
       }
       Player.prototype.update = function() {
-        if (this.y % 32 !== 0 || this.x % 32 !== 0) {
+        if (this.y % GRID !== 0 || this.x % GRID !== 0) {
           this.locked = true;
         } else {
           this.locked = false;
@@ -102,8 +106,9 @@
             this.x += this.movementFactor;
             this.direction = 'right';
         }
-        this.x = this.x.clamp(0, CANVAS_WIDTH - this.width);
-        this.y = this.y.clamp(0, CANVAS_HEIGHT - this.height);
+        this.x = this.x.clamp(0, CANVAS_WIDTH - GRID);
+        this.y = this.y.clamp(0, CANVAS_HEIGHT - GRID);
+        return null;
       };
       Player.prototype.draw = function() {
         var _ref, _ref2, _ref3, _ref4, _ref5, _ref6;
@@ -145,6 +150,7 @@
             }
         }
         context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
+        return null;
       };
       return Player;
     })();
@@ -156,5 +162,6 @@
       context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       player.draw();
     };
+    return null;
   });
 }).call(this);
