@@ -59,9 +59,10 @@
       $(document).bind('keydown', control, function() {
         return keysPressed.push(direction);
       });
-      return $(document).bind('keyup', control, function() {
+      $(document).bind('keyup', control, function() {
         return keysPressed = keysPressed.filter(direction);
       });
+      return null;
     };
     for (control in CONTROLS) {
       direction = CONTROLS[control];

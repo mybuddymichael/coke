@@ -127,6 +127,7 @@ $(document).ready ->
         keysPressed.push(direction))
       $(document).bind('keyup', control, ->
         keysPressed = keysPressed.filter(direction))
+      return null
 
 
   # ### Game entities
