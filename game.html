@@ -342,32 +342,17 @@ direction at a time.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-26">&#182;</a>
         </div>
-        <p><code>addToKeyPressArray()</code> and <code>removeFromKeyPressArray()</code> are helper functions
-for the <code>for</code> loop below that binds key presses.</p>
-      </td>
-      <td class=code>
-        <div class='highlight'><pre>  <span class="nv">addToKeyPressArray = </span><span class="nf">(v) -&gt;</span>
-    <span class="k">return</span> <span class="o">-&gt;</span>
-      <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span> <span class="k">return</span>
-
-  <span class="nv">removeFromKeyPressArray = </span><span class="nf">(v) -&gt;</span>
-    <span class="k">return</span> <span class="o">-&gt;</span>
-      <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span> <span class="k">return</span></pre></div>
-      </td>
-    </tr>
-    <tr id='section-27'>
-      <td class=docs>
-        <div class="pilwrap">
-          <a class="pilcrow" href="#section-27">&#182;</a>
-        </div>
         <p>Iterate over the <code>CONTROLS</code>, using
 <a href="https://github.com/jeresig/jquery.hotkeys">jQuery.hotkeys</a> to bind each
 <code>direction</code> to each <code>control</code>, or key.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre>  <span class="k">for</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">direction</span> <span class="k">of</span> <span class="nx">CONTROLS</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">addToKeyPressArray</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">removeFromKeyPressArray</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span></pre></div>
+    <span class="nx">do</span> <span class="nf">(control, direction) -&gt;</span>
+      <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span>
+      <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span></pre></div>
       </td>
     </tr>
     <tr id='section-Game_entities'>
@@ -389,10 +374,10 @@ for the <code>for</code> loop below that binds key presses.</p>
       <span class="vi">@movementFactor = </span><span class="mi">2</span></pre></div>
       </td>
     </tr>
-    <tr id='section-29'>
+    <tr id='section-28'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-29">&#182;</a>
+          <a class="pilcrow" href="#section-28">&#182;</a>
         </div>
         <p><code>Player.update()</code> is called by the higher level <code>update()</code> function, as
 we&rsquo;ll see below, which is turn called by <code>mainLoop()</code>.</p>
@@ -401,10 +386,10 @@ we&rsquo;ll see below, which is turn called by <code>mainLoop()</code>.</p>
         <div class='highlight'><pre>    <span class="nv">update: </span><span class="o">-&gt;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-30'>
+    <tr id='section-29'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-30">&#182;</a>
+          <a class="pilcrow" href="#section-29">&#182;</a>
         </div>
         <p>Unless the player is dead square on a grid unit, lock the ability to
 change direction. This makes sure the player character never goes off
@@ -417,10 +402,10 @@ the 32*32 grid.</p>
         <span class="vi">@locked = </span><span class="kc">false</span></pre></div>
       </td>
     </tr>
-    <tr id='section-31'>
+    <tr id='section-30'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-31">&#182;</a>
+          <a class="pilcrow" href="#section-30">&#182;</a>
         </div>
         <p>Fetch the last key pressed, unless movement is currently locked.</p>
       </td>
@@ -428,10 +413,10 @@ the 32*32 grid.</p>
         <div class='highlight'><pre>      <span class="vi">@keyPress = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">last</span><span class="p">()</span> <span class="nx">unless</span> <span class="nx">@locked</span></pre></div>
       </td>
     </tr>
-    <tr id='section-32'>
+    <tr id='section-31'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-32">&#182;</a>
+          <a class="pilcrow" href="#section-31">&#182;</a>
         </div>
         <p>Use the current key press to turn the player and begin moving in that
 direction.</p>
@@ -452,10 +437,10 @@ direction.</p>
           <span class="vi">@direction = </span><span class="s1">&#39;right&#39;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-33'>
+    <tr id='section-32'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-33">&#182;</a>
+          <a class="pilcrow" href="#section-32">&#182;</a>
         </div>
         <p>Prevent the player from going off the screen by <code>clamp</code>ing him down.</p>
       </td>
@@ -466,10 +451,10 @@ direction.</p>
       <span class="k">return</span> <span class="kc">null</span></pre></div>
       </td>
     </tr>
-    <tr id='section-34'>
+    <tr id='section-33'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-34">&#182;</a>
+          <a class="pilcrow" href="#section-33">&#182;</a>
         </div>
         <p><code>Player.draw()</code> is called every <code>canvas</code> update cycle, just like
 <code>Player.update()</code>. It fetches the player&rsquo;s direction, and then determines
@@ -508,10 +493,10 @@ player&rsquo;s image to draw.</p>
             <span class="vi">@imageX = </span><span class="mi">96</span></pre></div>
       </td>
     </tr>
-    <tr id='section-35'>
+    <tr id='section-34'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-35">&#182;</a>
+          <a class="pilcrow" href="#section-34">&#182;</a>
         </div>
         <p>Finally, actually draw the image on the <code>canvas</code>. The image is a sprite
 sheet, so it uses the X-coordinates (<code>@imageX</code>) to display the
@@ -523,10 +508,10 @@ appropriate image.</p>
       <span class="k">return</span> <span class="kc">null</span></pre></div>
       </td>
     </tr>
-    <tr id='section-36'>
+    <tr id='section-35'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-36">&#182;</a>
+          <a class="pilcrow" href="#section-35">&#182;</a>
         </div>
         <p>Create an instance of the <code>Player</code> class.</p>
       </td>
@@ -545,10 +530,10 @@ appropriate image.</p>
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-38'>
+    <tr id='section-37'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-38">&#182;</a>
+          <a class="pilcrow" href="#section-37">&#182;</a>
         </div>
         <p><code>update()</code> and <code>draw()</code> are called by the <code>mainLoop()</code> and respectively
 update and draw each individual entity, thus bringing the game logic full
@@ -565,10 +550,10 @@ circle.</p>
     <span class="k">return</span></pre></div>
       </td>
     </tr>
-    <tr id='section-39'>
+    <tr id='section-38'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-39">&#182;</a>
+          <a class="pilcrow" href="#section-38">&#182;</a>
         </div>
         <p>Return <code>null</code> from the jQuery anonymous function.</p>
 
