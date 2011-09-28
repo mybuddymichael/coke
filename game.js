@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, addToKeyPressArray, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, removeFromKeyPressArray, update;
+    var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, update, _fn;
     CANVAS_WIDTH = 480;
     CANVAS_HEIGHT = 320;
     GRID = 32;
@@ -55,20 +55,17 @@
       setInterval(mainLoop, 1000 / FPS);
     }
     keysPressed = [];
-    addToKeyPressArray = function(v) {
-      return function() {
-        keysPressed.push(v);
-      };
-    };
-    removeFromKeyPressArray = function(v) {
-      return function() {
-        keysPressed = keysPressed.filter(v);
-      };
+    _fn = function(control, direction) {
+      $(document).bind('keydown', control, function() {
+        return keysPressed.push(direction);
+      });
+      return $(document).bind('keyup', control, function() {
+        return keysPressed = keysPressed.filter(direction);
+      });
     };
     for (control in CONTROLS) {
       direction = CONTROLS[control];
-      $(document).bind('keydown', control, addToKeyPressArray(direction));
-      $(document).bind('keyup', control, removeFromKeyPressArray(direction));
+      _fn(control, direction);
     }
     Player = (function() {
       function Player() {

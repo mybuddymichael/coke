@@ -116,22 +116,15 @@ $(document).ready ->
   # direction at a time.
   keysPressed = []
 
-  # `addToKeyPressArray()` and `removeFromKeyPressArray()` are helper functions
-  # for the `for` loop below that binds key presses.
-  addToKeyPressArray = (v) ->
-    return ->
-      keysPressed.push(v); return
-
-  removeFromKeyPressArray = (v) ->
-    return ->
-      keysPressed = keysPressed.filter(v); return
-
   # Iterate over the `CONTROLS`, using
   # [jQuery.hotkeys](https://github.com/jeresig/jquery.hotkeys) to bind each
   # `direction` to each `control`, or key.
   for control, direction of CONTROLS
-    $(document).bind('keydown', control, addToKeyPressArray(direction))
-    $(document).bind('keyup', control, removeFromKeyPressArray(direction))
+    do (control, direction) ->
+      $(document).bind('keydown', control, ->
+        keysPressed.push(direction))
+      $(document).bind('keyup', control, ->
+        keysPressed = keysPressed.filter(direction))
 
   # ### Game entities
 
