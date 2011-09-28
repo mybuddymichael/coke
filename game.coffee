@@ -2,10 +2,12 @@
 # in CoffeeScript/JavaScript, and uses HTML5's `canvas` element for rendering.
 # Check out the [full source on GitHub](https://github.com/mybuddymichael/coke).
 
+
 # ## The source
 
 # Use jQuery to execute the code when the document is ready.
 $(document).ready ->
+
 
   # ### Settings
 
@@ -125,6 +127,7 @@ $(document).ready ->
         keysPressed.push(direction))
       $(document).bind('keyup', control, ->
         keysPressed = keysPressed.filter(direction))
+
 
   # ### Game entities
 
