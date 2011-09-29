@@ -57,10 +57,12 @@
     keysPressed = [];
     _fn = function(control, direction) {
       $(document).bind('keydown', control, function() {
-        return keysPressed.push(direction);
+        keysPressed.push(direction);
+        return null;
       });
       $(document).bind('keyup', control, function() {
-        return keysPressed = keysPressed.filter(direction);
+        keysPressed = keysPressed.filter(direction);
+        return null;
       });
       return null;
     };

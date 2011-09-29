@@ -350,9 +350,9 @@ direction at a time.</p>
         <div class='highlight'><pre>  <span class="k">for</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">direction</span> <span class="k">of</span> <span class="nx">CONTROLS</span>
     <span class="nx">do</span> <span class="nf">(control, direction) -&gt;</span>
       <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
-        <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span>
+        <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">direction</span><span class="p">);</span> <span class="k">return</span> <span class="kc">null</span><span class="p">)</span>
       <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
-        <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span>
+        <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">direction</span><span class="p">);</span> <span class="k">return</span> <span class="kc">null</span><span class="p">)</span>
       <span class="k">return</span> <span class="kc">null</span></pre></div>
       </td>
     </tr>

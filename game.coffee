@@ -124,9 +124,9 @@ $(document).ready ->
   for control, direction of CONTROLS
     do (control, direction) ->
       $(document).bind('keydown', control, ->
-        keysPressed.push(direction))
+        keysPressed.push(direction); return null)
       $(document).bind('keyup', control, ->
-        keysPressed = keysPressed.filter(direction))
+        keysPressed = keysPressed.filter(direction); return null)
       return null
 
 
