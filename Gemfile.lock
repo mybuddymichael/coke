@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/mybuddymichael/guard-rocco.git
+  revision: 806a8d01c49895b8e9c4322a3cf253f601b4c5a9
+  specs:
+    guard-rocco (0.0.4)
+      guard (>= 0.4.0)
+      rocco
+
+GIT
+  remote: https://github.com/rtomayko/rocco.git
+  revision: f2e91e5b46ce7cc86ee62a34924e70c5b102ffe8
+  specs:
+    rocco (0.8.2)
+      mustache
+      redcarpet
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -6,22 +22,16 @@ GEM
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
     eventmachine (0.12.10)
-    guard (0.8.1)
+    guard (0.8.2)
       thor (~> 0.14.6)
     guard-livereload (0.3.1)
       em-websocket (>= 0.2.0)
       guard (>= 0.4.0)
       multi_json (~> 1.0.3)
-    guard-rocco (0.0.3)
-      guard (>= 0.4.0)
-      rocco
     multi_json (1.0.3)
     mustache (0.99.4)
     rb-fsevent (0.4.3.1)
     redcarpet (1.17.2)
-    rocco (0.8.2)
-      mustache
-      redcarpet
     thor (0.14.6)
 
 PLATFORMS
@@ -30,5 +40,6 @@ PLATFORMS
 DEPENDENCIES
   guard (~> 0.8.0)
   guard-livereload (~> 0.3.1)
-  guard-rocco (~> 0.0.3)
+  guard-rocco (~> 0.0.4)!
   rb-fsevent (~> 0.4.3)
+  rocco (~> 0.8.2)!
