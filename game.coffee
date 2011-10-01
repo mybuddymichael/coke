@@ -144,22 +144,16 @@ class Player
     @image = new Image
     @image.src = 'images/player.png'
     @direction = 'down'
-    @locked = false
     @movementFactor = 2
 
   # `Player.update()` is called by the higher level `update()` function, as
   # we'll see below, which is turn called by `mainLoop()`.
   update: ->
-    # Unless the player is dead square on a grid unit, lock the ability to
-    # change direction. This makes sure the player character never goes off
-    # the 32*32 grid.
-    if @y%GRID != 0 or @x%GRID != 0
-      @locked = true
-    else
-      @locked = false
 
-    # Fetch the last key pressed, unless movement is currently locked.
-    @keyPress = keysPressed.last() unless @locked
+    # If the player is dead square on a grid unit, fetch the last key pressed,
+    # otherwise the player's direction and movement should be locked.  This
+    # makes sure the player character never goes off the 32*32 grid.  
+    @keyPress = keysPressed.last() unless (@y%GRID != 0 or @x%GRID != 0)
 
     # Use the current key press to turn the player and begin moving in that
     # direction.

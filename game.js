@@ -82,16 +82,10 @@
       this.image = new Image;
       this.image.src = 'images/player.png';
       this.direction = 'down';
-      this.locked = false;
       this.movementFactor = 2;
     }
     Player.prototype.update = function() {
-      if (this.y % GRID !== 0 || this.x % GRID !== 0) {
-        this.locked = true;
-      } else {
-        this.locked = false;
-      }
-      if (!this.locked) {
+      if (!(this.y % GRID !== 0 || this.x % GRID !== 0)) {
         this.keyPress = keysPressed.last();
       }
       switch (this.keyPress) {
