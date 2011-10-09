@@ -7,8 +7,8 @@ GIT
       less (~> 2.0.5)
 
 GIT
-  remote: https://github.com/mybuddymichael/guard-rocco.git
-  revision: 806a8d01c49895b8e9c4322a3cf253f601b4c5a9
+  remote: https://github.com/johnbintz/guard-rocco.git
+  revision: 8d28649533771dc6f4caeea02d2f3ce6fea108c9
   specs:
     guard-rocco (0.0.4)
       guard (>= 0.4.0)
