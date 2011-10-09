@@ -165,7 +165,7 @@ canvas {
   border-radius: 3px;
 }
 #coke {
-  background-image: url('images/coke.png');
+  background-image: url('../images/coke.png');
   height: 81px;
   width: 289px;
   text-indent: -9999px;
@@ -179,7 +179,7 @@ canvas {
   outline: none;
 }
 #subtitle {
-  background-image: url('images/a_canvas_game.png');
+  background-image: url('../images/a_canvas_game.png');
   height: 25px;
   width: 249px;
   text-indent: -9999px;
