@@ -67,10 +67,6 @@ table {
   a { outline: none; }
 }
 
-// Variables
-@base_gray: #ccccc1;
-@background_green: #ced6bc;
-@dark_green: #5b6449;
 
 // Font-face
 @font-face {
@@ -85,25 +81,36 @@ table {
 }
 
 
+// Colors
+// Background color
+@base_gray: #ccccc1;
+
+// Bases are the shades of green. @base0 is darkest, @base3 is lightest.
+@base0: #5b6449;
+@base1: #7d876b;
+@base2: #a4af91;
+@base3: #ced6bc;
+
+
 // Custom
 body {
   width: 482px;
   margin: 0 auto 0 auto;
   background: @base_gray;
-  color: @dark_green;
+  color: @base0;
   font: 16px '04b03', monospace;
-  text-shadow: 1px 1px 0 lighten(@dark_green, 50%);
+  text-shadow: 1px 1px 0 lighten(@base0, 50%);
 }
 
 a {
-              color:  darken(@dark_green, 8%);
-  &:visited { color:  darken(@dark_green, 8%); }
-  &:hover   { color: lighten(@dark_green, 7%); }
+              color:  darken(@base0, 8%);
+  &:visited { color:  darken(@base0, 8%); }
+  &:hover   { color: lighten(@base0, 7%); }
   &:active  { color: black; }
 }
 
 canvas {
-  background: @background_green;
+  background: @base3;
   .border-radius(inherit);
 }
 
@@ -120,7 +127,7 @@ canvas {
 #coke {
   .image-replace(81px, 289px, '../images/coke.png');
   margin: 32px auto 16px auto;
-  color: @dark_green;
+  color: @base0;
   font-size: 128px;
   text-align: center;
 }
@@ -128,7 +135,7 @@ canvas {
 #subtitle {
   .image-replace(25px, 249px, '../images/a_canvas_game.png');
   margin: 16px auto 16px auto;
-  color: @dark_green;
+  color: @base0;
   font-size: 32px;
   text-align: center;
 }
@@ -136,6 +143,6 @@ canvas {
 #instructions {
   margin-top: 16px;
   margin-bottom: 16px;
-  color: darken(@dark_green, 2%);
+  color: darken(@base0, 2%);
   text-align: center;
 }
