@@ -108,11 +108,11 @@
       return context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
     };
     Player.prototype.getImageX = function() {
-      var _ref, _ref2, _ref3, _ref4, _ref5, _ref6;
+      var _ref, _ref2, _ref3, _ref4;
       switch (this.direction) {
         case 'up':
-          if ((17 <= (_ref = this.y % 32) && _ref <= 31)) {
-            if ((0 <= (_ref2 = this.y % 64) && _ref2 <= 31)) {
+          if (this.y % 32 >= 17) {
+            if ((0 <= (_ref = this.y % 64) && _ref <= 31)) {
               return 128;
             } else {
               return 160;
@@ -122,8 +122,8 @@
           }
           break;
         case 'down':
-          if ((1 <= (_ref3 = this.y % 32) && _ref3 <= 16)) {
-            if ((32 <= (_ref4 = this.y % 64) && _ref4 <= 63)) {
+          if ((1 <= (_ref2 = this.y % 32) && _ref2 <= 16)) {
+            if ((32 <= (_ref3 = this.y % 64) && _ref3 <= 63)) {
               return 192;
             } else {
               return 224;
@@ -133,14 +133,14 @@
           }
           break;
         case 'left':
-          if ((17 <= (_ref5 = this.x % 32) && _ref5 <= 31)) {
+          if (this.x % 32 >= 17) {
             return 256;
           } else {
             return 64;
           }
           break;
         case 'right':
-          if ((1 <= (_ref6 = this.x % 32) && _ref6 <= 16)) {
+          if ((1 <= (_ref4 = this.x % 32) && _ref4 <= 16)) {
             return 288;
           } else {
             return 96;

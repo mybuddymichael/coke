@@ -485,7 +485,7 @@ which section of the player&rsquo;s image to draw.</p>
         <div class='highlight'><pre>  <span class="nv">getImageX: </span><span class="o">-&gt;</span>
     <span class="k">switch</span> <span class="nx">@direction</span>
       <span class="k">when</span> <span class="s1">&#39;up&#39;</span>
-        <span class="k">if</span> <span class="mi">17</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+        <span class="k">if</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&gt;=</span> <span class="mi">17</span>
           <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">31</span>
             <span class="mi">128</span>
           <span class="k">else</span>
@@ -501,7 +501,7 @@ which section of the player&rsquo;s image to draw.</p>
         <span class="k">else</span>
            <span class="mi">32</span>
       <span class="k">when</span> <span class="s1">&#39;left&#39;</span>
-        <span class="k">if</span> <span class="mi">17</span> <span class="o">&lt;=</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+        <span class="k">if</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&gt;=</span> <span class="mi">17</span>
           <span class="mi">256</span>
         <span class="k">else</span>
           <span class="mi">64</span>

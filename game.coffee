@@ -173,6 +173,7 @@ class Player
   # `Player.draw()` is called every `canvas` update cycle, just like
   # `Player.update()`. This is what draws and animates the player sprite.
   draw: ->
+
     # `getImageX()` is a function (defined below) that returns the x-coordinate
     # for the sprite section that needs to be drawn.
     @imageX = @getImageX()
@@ -181,6 +182,7 @@ class Player
     # sheet to use (`@image`), the x-coordinate to draw (`@imageX`).
     context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
 
+
   # `Player.getImageX()` used by `Player.draw()`.  It fetches the player's
   # direction, and then determines if the player is in movement by using moduli.
   # If the player _is_ in movement, it uses additional calculation to decide
@@ -188,7 +190,7 @@ class Player
   getImageX: ->
     switch @direction
       when 'up'
-        if 17 <= @y%32 <= 31
+        if @y%32 >= 17
           if 0 <= @y%64 <= 31
             128
           else
@@ -204,7 +206,7 @@ class Player
         else
            32
       when 'left'
-        if 17 <= @x%32 <= 31
+        if @x%32 >= 17
           256
         else
           64
