@@ -182,6 +182,7 @@ class Player
     # sheet to use (`@image`), the x-coordinate to draw (`@imageX`).
     context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
 
+  # #### Player helpers
 
   # `Player.getImageX()` used by `Player.draw()`.  It fetches the player's
   # direction, and then determines if the player is in movement by using moduli.
