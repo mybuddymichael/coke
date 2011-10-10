@@ -41,19 +41,17 @@
       width: CANVAS_WIDTH
     });
     canvasElement = canvasObject.get(0);
-    context = canvasElement.getContext('2d');
-    return null;
+    return context = canvasElement.getContext('2d');
   });
   mainLoop = function() {
     update();
-    draw();
-    return true;
+    return draw();
   };
   animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
   if (animate !== null) {
     recursiveAnimate = function() {
       mainLoop();
-      animate(recursiveAnimate, canvasElement);
+      return animate(recursiveAnimate, canvasElement);
     };
     animate(recursiveAnimate, canvasElement);
   } else {
@@ -62,14 +60,11 @@
   keysPressed = [];
   _fn = function(control, direction) {
     $(document).bind('keydown', control, function() {
-      keysPressed.push(direction);
-      return null;
+      return keysPressed.push(direction);
     });
-    $(document).bind('keyup', control, function() {
-      keysPressed = keysPressed.filter(direction);
-      return null;
+    return $(document).bind('keyup', control, function() {
+      return keysPressed = keysPressed.filter(direction);
     });
-    return null;
   };
   for (control in CONTROLS) {
     direction = CONTROLS[control];
@@ -106,59 +101,60 @@
           this.direction = 'right';
       }
       this.x = this.x.clamp(0, CANVAS_WIDTH - GRID);
-      this.y = this.y.clamp(0, CANVAS_HEIGHT - GRID);
-      return null;
+      return this.y = this.y.clamp(0, CANVAS_HEIGHT - GRID);
     };
     Player.prototype.draw = function() {
+      this.imageX = this.getImageX();
+      return context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
+    };
+    Player.prototype.getImageX = function() {
       var _ref, _ref2, _ref3, _ref4, _ref5, _ref6;
       switch (this.direction) {
         case 'up':
           if ((17 <= (_ref = this.y % 32) && _ref <= 31)) {
             if ((0 <= (_ref2 = this.y % 64) && _ref2 <= 31)) {
-              this.imageX = 128;
+              return 128;
             } else {
-              this.imageX = 160;
+              return 160;
             }
           } else {
-            this.imageX = 0;
+            return 0;
           }
           break;
         case 'down':
           if ((1 <= (_ref3 = this.y % 32) && _ref3 <= 16)) {
             if ((32 <= (_ref4 = this.y % 64) && _ref4 <= 63)) {
-              this.imageX = 192;
+              return 192;
             } else {
-              this.imageX = 224;
+              return 224;
             }
           } else {
-            this.imageX = 32;
+            return 32;
           }
           break;
         case 'left':
           if ((17 <= (_ref5 = this.x % 32) && _ref5 <= 31)) {
-            this.imageX = 256;
+            return 256;
           } else {
-            this.imageX = 64;
+            return 64;
           }
           break;
         case 'right':
           if ((1 <= (_ref6 = this.x % 32) && _ref6 <= 16)) {
-            this.imageX = 288;
+            return 288;
           } else {
-            this.imageX = 96;
+            return 96;
           }
       }
-      context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
-      return null;
     };
     return Player;
   })();
   player = new Player;
   update = function() {
-    player.update();
+    return player.update();
   };
   draw = function() {
     context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    player.draw();
+    return player.draw();
   };
 }).call(this);

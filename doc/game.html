@@ -225,9 +225,7 @@ main program.</p>
 actual point of interaction for all drawing logic, as we&rsquo;ll see later.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>  <span class="nv">context = </span><span class="nx">canvasElement</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">)</span>
-
-  <span class="k">return</span> <span class="kc">null</span></pre></div>
+        <div class='highlight'><pre>  <span class="nv">context = </span><span class="nx">canvasElement</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">)</span></pre></div>
       </td>
     </tr>
     <tr id='section-The_animation_loop'>
@@ -253,8 +251,7 @@ below.</p>
       <td class=code>
         <div class='highlight'><pre><span class="nv">mainLoop = </span><span class="o">-&gt;</span>
   <span class="nx">update</span><span class="p">()</span>
-  <span class="nx">draw</span><span class="p">()</span>
-  <span class="k">return</span> <span class="kc">true</span></pre></div>
+  <span class="nx">draw</span><span class="p">()</span></pre></div>
       </td>
     </tr>
     <tr id='section-20'>
@@ -289,8 +286,7 @@ for Chrome, the <code>canvas</code> element.</p>
         <div class='highlight'><pre><span class="k">if</span> <span class="nx">animate</span> <span class="o">!=</span> <span class="kc">null</span>
   <span class="nv">recursiveAnimate = </span><span class="o">-&gt;</span>
     <span class="nx">mainLoop</span><span class="p">()</span>
-    <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span>
-    <span class="k">return</span></pre></div>
+    <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span></pre></div>
       </td>
     </tr>
     <tr id='section-22'>
@@ -355,10 +351,9 @@ direction at a time.</p>
         <div class='highlight'><pre><span class="k">for</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">direction</span> <span class="k">of</span> <span class="nx">CONTROLS</span>
   <span class="nx">do</span> <span class="nf">(control, direction) -&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
-      <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">direction</span><span class="p">);</span> <span class="k">return</span> <span class="kc">null</span><span class="p">)</span>
+      <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span>
     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
-      <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">direction</span><span class="p">);</span> <span class="k">return</span> <span class="kc">null</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">null</span></pre></div>
+      <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span></pre></div>
       </td>
     </tr>
     <tr id='section-Game_entities'>
@@ -398,7 +393,7 @@ we&rsquo;ll see below, which is turn called by <code>mainLoop()</code>.</p>
         </div>
         <p>If the player is dead square on a grid unit, fetch the last key pressed,
 otherwise the player&rsquo;s direction and movement should be locked.  This
-makes sure the player character never goes off the 32*32 grid.  </p>
+makes sure the player character never goes off the 32*32 grid.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="vi">@keyPress = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">last</span><span class="p">()</span> <span class="nx">unless</span> <span class="p">(</span><span class="nx">@y</span><span class="o">%</span><span class="nx">GRID</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">or</span> <span class="nx">@x</span><span class="o">%</span><span class="nx">GRID</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span></pre></div>
@@ -437,9 +432,7 @@ direction.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="vi">@x = </span><span class="nx">@x</span><span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">CANVAS_WIDTH</span> <span class="o">-</span> <span class="nx">GRID</span><span class="p">)</span>
-    <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">CANVAS_HEIGHT</span> <span class="o">-</span> <span class="nx">GRID</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="kc">null</span></pre></div>
+    <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">CANVAS_HEIGHT</span> <span class="o">-</span> <span class="nx">GRID</span><span class="p">)</span></pre></div>
       </td>
     </tr>
     <tr id='section-32'>
@@ -448,40 +441,10 @@ direction.</p>
           <a class="pilcrow" href="#section-32">&#182;</a>
         </div>
         <p><code>Player.draw()</code> is called every <code>canvas</code> update cycle, just like
-<code>Player.update()</code>. It fetches the player&rsquo;s direction, and then determines
-if the player is in movement by using moduli. If the player is in
-movement, it uses additional calculation to decide which section of the
-player&rsquo;s image to draw.</p>
+<code>Player.update()</code>. This is what draws and animates the player sprite.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>  <span class="nv">draw: </span><span class="o">-&gt;</span>
-    <span class="k">switch</span> <span class="nx">@direction</span>
-      <span class="k">when</span> <span class="s1">&#39;up&#39;</span>
-        <span class="k">if</span> <span class="mi">17</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">31</span>
-          <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">31</span>
-            <span class="vi">@imageX = </span><span class="mi">128</span>
-          <span class="k">else</span>
-            <span class="vi">@imageX = </span><span class="mi">160</span>
-        <span class="k">else</span>
-          <span class="vi">@imageX = </span><span class="mi">0</span>
-      <span class="k">when</span> <span class="s1">&#39;down&#39;</span>
-        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
-          <span class="k">if</span> <span class="mi">32</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">63</span>
-            <span class="vi">@imageX = </span><span class="mi">192</span>
-          <span class="k">else</span>
-            <span class="vi">@imageX = </span><span class="mi">224</span>
-        <span class="k">else</span>
-          <span class="vi">@imageX = </span><span class="mi">32</span>
-      <span class="k">when</span> <span class="s1">&#39;left&#39;</span>
-        <span class="k">if</span> <span class="mi">17</span> <span class="o">&lt;=</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">31</span>
-          <span class="vi">@imageX = </span><span class="mi">256</span>
-        <span class="k">else</span>
-          <span class="vi">@imageX = </span><span class="mi">64</span>
-      <span class="k">when</span> <span class="s1">&#39;right&#39;</span>
-        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
-          <span class="vi">@imageX = </span><span class="mi">288</span>
-        <span class="k">else</span>
-          <span class="vi">@imageX = </span><span class="mi">96</span></pre></div>
+        <div class='highlight'><pre>  <span class="nv">draw: </span><span class="o">-&gt;</span></pre></div>
       </td>
     </tr>
     <tr id='section-33'>
@@ -489,20 +452,70 @@ player&rsquo;s image to draw.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-33">&#182;</a>
         </div>
-        <p>Finally, actually draw the image on the <code>canvas</code>. The image is a sprite
-sheet, so it uses the X-coordinates (<code>@imageX</code>) to display the
-appropriate image.</p>
+        <p><code>getImageX()</code> is a function (defined below) that returns the x-coordinate
+for the sprite section that needs to be drawn.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">@image</span><span class="p">,</span> <span class="nx">@imageX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="kc">null</span></pre></div>
+        <div class='highlight'><pre>    <span class="vi">@imageX = </span><span class="nx">@getImageX</span><span class="p">()</span></pre></div>
       </td>
     </tr>
     <tr id='section-34'>
       <td class=docs>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-34">&#182;</a>
+        </div>
+        <p>Here we actually draw the image on the <code>canvas</code>. We pass along the sprite
+sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</code>).</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">@image</span><span class="p">,</span> <span class="nx">@imageX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-35'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-35">&#182;</a>
+        </div>
+        <p><code>Player.getImageX()</code> used by <code>Player.draw()</code>.  It fetches the player&rsquo;s
+direction, and then determines if the player is in movement by using moduli.
+If the player <em>is</em> in movement, it uses additional calculation to decide
+which section of the player&rsquo;s image to draw.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="nv">getImageX: </span><span class="o">-&gt;</span>
+    <span class="k">switch</span> <span class="nx">@direction</span>
+      <span class="k">when</span> <span class="s1">&#39;up&#39;</span>
+        <span class="k">if</span> <span class="mi">17</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+          <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+            <span class="mi">128</span>
+          <span class="k">else</span>
+            <span class="mi">160</span>
+        <span class="k">else</span>
+           <span class="mi">0</span>
+      <span class="k">when</span> <span class="s1">&#39;down&#39;</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
+          <span class="k">if</span> <span class="mi">32</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">63</span>
+            <span class="mi">192</span>
+          <span class="k">else</span>
+            <span class="mi">224</span>
+        <span class="k">else</span>
+           <span class="mi">32</span>
+      <span class="k">when</span> <span class="s1">&#39;left&#39;</span>
+        <span class="k">if</span> <span class="mi">17</span> <span class="o">&lt;=</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+          <span class="mi">256</span>
+        <span class="k">else</span>
+          <span class="mi">64</span>
+      <span class="k">when</span> <span class="s1">&#39;right&#39;</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
+          <span class="mi">288</span>
+        <span class="k">else</span>
+          <span class="mi">96</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-36'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-36">&#182;</a>
         </div>
         <p>Create an instance of the <code>Player</code> class.</p>
       </td>
@@ -521,10 +534,10 @@ appropriate image.</p>
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-36'>
+    <tr id='section-38'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-36">&#182;</a>
+          <a class="pilcrow" href="#section-38">&#182;</a>
         </div>
         <p><code>update()</code> and <code>draw()</code> are called by the <code>mainLoop()</code> and respectively
 update and draw each individual entity, thus bringing the game logic full
@@ -534,12 +547,10 @@ circle.</p>
       <td class=code>
         <div class='highlight'><pre><span class="nv">update = </span><span class="o">-&gt;</span>
   <span class="nx">player</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>
-  <span class="k">return</span>
 
 <span class="nv">draw = </span><span class="o">-&gt;</span>
   <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">CANVAS_WIDTH</span><span class="p">,</span> <span class="nx">CANVAS_HEIGHT</span><span class="p">)</span>
-  <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">()</span>
-  <span class="k">return</span></pre></div>
+  <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">()</span></pre></div>
       </td>
     </tr>
   </table>

@@ -73,8 +73,6 @@ $ ->
   # actual point of interaction for all drawing logic, as we'll see later.
   context = canvasElement.getContext('2d')
 
-  return null
-
 
 # ### The animation loop
 
@@ -84,7 +82,6 @@ $ ->
 mainLoop = ->
   update()
   draw()
-  return true
 
 # Some of the more modern browsers have support for a smoother animation loop
 # called `requestAnimationFrame`. If the browser does support it, assign it to
@@ -104,7 +101,6 @@ if animate != null
   recursiveAnimate = ->
     mainLoop()
     animate(recursiveAnimate, canvasElement)
-    return
 
   # Call `animate` as in `recursiveAnimate()` to get the recursive ball
   # rolling on the animation cycle.
@@ -129,10 +125,9 @@ keysPressed = []
 for control, direction of CONTROLS
   do (control, direction) ->
     $(document).bind('keydown', control, ->
-      keysPressed.push(direction); return null)
+      keysPressed.push(direction))
     $(document).bind('keyup', control, ->
-      keysPressed = keysPressed.filter(direction); return null)
-    return null
+      keysPressed = keysPressed.filter(direction))
 
 
 # ### Game entities
@@ -152,7 +147,7 @@ class Player
 
     # If the player is dead square on a grid unit, fetch the last key pressed,
     # otherwise the player's direction and movement should be locked.  This
-    # makes sure the player character never goes off the 32*32 grid.  
+    # makes sure the player character never goes off the 32*32 grid.
     @keyPress = keysPressed.last() unless (@y%GRID != 0 or @x%GRID != 0)
 
     # Use the current key press to turn the player and begin moving in that
@@ -175,48 +170,50 @@ class Player
     @x = @x.clamp(0, CANVAS_WIDTH - GRID)
     @y = @y.clamp(0, CANVAS_HEIGHT - GRID)
 
-    return null
-
   # `Player.draw()` is called every `canvas` update cycle, just like
-  # `Player.update()`. It fetches the player's direction, and then determines
-  # if the player is in movement by using moduli. If the player is in
-  # movement, it uses additional calculation to decide which section of the
-  # player's image to draw.
+  # `Player.update()`. This is what draws and animates the player sprite.
   draw: ->
+    # `getImageX()` is a function (defined below) that returns the x-coordinate
+    # for the sprite section that needs to be drawn.
+    @imageX = @getImageX()
+
+    # Here we actually draw the image on the `canvas`. We pass along the sprite
+    # sheet to use (`@image`), the x-coordinate to draw (`@imageX`).
+    context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
+
+  # `Player.getImageX()` used by `Player.draw()`.  It fetches the player's
+  # direction, and then determines if the player is in movement by using moduli.
+  # If the player _is_ in movement, it uses additional calculation to decide
+  # which section of the player's image to draw.
+  getImageX: ->
     switch @direction
       when 'up'
         if 17 <= @y%32 <= 31
           if 0 <= @y%64 <= 31
-            @imageX = 128
+            128
           else
-            @imageX = 160
+            160
         else
-          @imageX = 0
+           0
       when 'down'
         if 1 <= @y%32 <= 16
           if 32 <= @y%64 <= 63
-            @imageX = 192
+            192
           else
-            @imageX = 224
+            224
         else
-          @imageX = 32
+           32
       when 'left'
         if 17 <= @x%32 <= 31
-          @imageX = 256
+          256
         else
-          @imageX = 64
+          64
       when 'right'
         if 1 <= @x%32 <= 16
-          @imageX = 288
+          288
         else
-          @imageX = 96
+          96
 
-    # Finally, actually draw the image on the `canvas`. The image is a sprite
-    # sheet, so it uses the X-coordinates (`@imageX`) to display the
-    # appropriate image.
-    context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
-
-    return null
 
 # Create an instance of the `Player` class.
 player = new Player
@@ -229,9 +226,7 @@ player = new Player
 # circle.
 update = ->
   player.update()
-  return
 
 draw = ->
   context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   player.draw()
-  return
