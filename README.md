@@ -18,6 +18,4 @@ in-sync with `master`. Usage requires a modern browser with support for the
 
 ## License
 
-(The MIT License)
-
 Copyright © 2011 Michael Hanson; see LICENSE.
