@@ -1,9 +1,14 @@
 (function() {
   var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, update, _fn;
+
   CANVAS_WIDTH = 480;
+
   CANVAS_HEIGHT = 320;
+
   GRID = 32;
+
   FPS = 60;
+
   CONTROLS = {
     w: 'up',
     s: 'down',
@@ -14,26 +19,31 @@
     left: 'left',
     right: 'right'
   };
+
   Number.prototype.clamp = function(min, max) {
     return Math.min(Math.max(this, min), max);
   };
+
   Array.prototype.last = function() {
     return this[this.length - 1];
   };
+
   Array.prototype.filter = function(v) {
     var x, _i, _len, _results;
     _results = [];
     for (_i = 0, _len = this.length; _i < _len; _i++) {
       x = this[_i];
-      if (x !== v) {
-        _results.push(x);
-      }
+      if (x !== v) _results.push(x);
     }
     return _results;
   };
+
   canvasObject = null;
+
   canvasElement = null;
+
   context = null;
+
   $(function() {
     canvasObject = $('canvas');
     canvasObject.attr({
@@ -43,11 +53,14 @@
     canvasElement = canvasObject.get(0);
     return context = canvasElement.getContext('2d');
   });
+
   mainLoop = function() {
     update();
     return draw();
   };
+
   animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
+
   if (animate !== null) {
     recursiveAnimate = function() {
       mainLoop();
@@ -57,7 +70,9 @@
   } else {
     setInterval(mainLoop, 1000 / FPS);
   }
+
   keysPressed = [];
+
   _fn = function(control, direction) {
     $(document).bind('keydown', control, function() {
       return keysPressed.push(direction);
@@ -70,7 +85,9 @@
     direction = CONTROLS[control];
     _fn(control, direction);
   }
+
   Player = (function() {
+
     function Player() {
       this.x = GRID * 7;
       this.y = GRID * 5;
@@ -79,6 +96,7 @@
       this.direction = 'down';
       this.movementFactor = 2;
     }
+
     Player.prototype.update = function() {
       if (!(this.y % GRID !== 0 || this.x % GRID !== 0)) {
         this.keyPress = keysPressed.last();
@@ -103,10 +121,12 @@
       this.x = this.x.clamp(0, CANVAS_WIDTH - GRID);
       return this.y = this.y.clamp(0, CANVAS_HEIGHT - GRID);
     };
+
     Player.prototype.draw = function() {
       this.imageX = this.getImageX();
       return context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
     };
+
     Player.prototype.getImageX = function() {
       var _ref, _ref2, _ref3, _ref4;
       switch (this.direction) {
@@ -147,14 +167,20 @@
           }
       }
     };
+
     return Player;
+
   })();
+
   player = new Player;
+
   update = function() {
     return player.update();
   };
+
   draw = function() {
     context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     return player.draw();
   };
+
 }).call(this);
