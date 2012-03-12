@@ -1,4 +1,4 @@
-$import 'reset';
+@import 'reset';
 
 // Mixins
 @mixin border-radius ($radius: 2px) {
@@ -8,7 +8,7 @@ $import 'reset';
 }
 
 @mixin image-replace ($height, $width, $url) {
-  background-image: url('${url}');
+  background-image: url('#{$url}');
   height: $height;
   width: $width;
   text-indent: -9999px;
