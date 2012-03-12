@@ -2,7 +2,7 @@ guard 'coffeescript' do
   watch(%r{^.+\.coffee$})
 end
 
-guard 'sass' do
+guard 'sass', output: 'style' do
   watch(%r{^.+\.scss$})
 end
 
