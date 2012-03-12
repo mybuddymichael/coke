@@ -11,6 +11,6 @@ guard 'rocco', :dir => 'doc/', :stylesheet => '../style/doc.css' do
 end
 
 guard 'livereload' do
-  watch(%r{^.+\.(coffee|js|less|html|png)$})
+  watch(%r{^.+\.(coffee|js|css|html|png)$})
   watch(%r{^images/.+\.png})
 end
