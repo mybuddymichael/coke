@@ -16,6 +16,5 @@ in-sync with `master`. Usage requires a modern browser with support for the
     $ cd coke
     $ open index.html
 
-## License
 
-Copyright © 2011 Michael Hanson; see LICENSE.
+Copyright © 2012 Michael Hanson; see COPYING.
