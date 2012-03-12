@@ -1,5 +1,5 @@
-guard 'less', :all_on_start => true, :all_after_change => true do
-  watch(%r{^.+\.less$})
+guard 'coffeescript' do
+  watch(%r{^.+\.coffee$})
 end
 
 guard 'rocco', :dir => 'doc/', :stylesheet => '../style/doc.css' do
