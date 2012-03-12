@@ -1,9 +1,9 @@
 (function() {
   var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, update, _fn;
 
-  CANVAS_WIDTH = 480;
+  CANVAS_WIDTH = 960;
 
-  CANVAS_HEIGHT = 320;
+  CANVAS_HEIGHT = 640;
 
   GRID = 32;
 

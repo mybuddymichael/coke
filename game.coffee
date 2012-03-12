@@ -6,8 +6,8 @@
 # ### Settings
 
 # Set width and height constants for the program.
-CANVAS_WIDTH  = 480
-CANVAS_HEIGHT = 320
+CANVAS_WIDTH  = 960
+CANVAS_HEIGHT = 640
 
 # `GRID` is the default width and height measurement of a square unit in the
 # game.
