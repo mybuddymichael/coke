@@ -1,16 +1,16 @@
 // Variables
-@base_gray: #ccccc1;
-@background_green: #ced6bc;
-@dark_green: #5b6449;
+$base_gray: #ccccc1;
+$background_green: #ced6bc;
+$dark_green: #5b6449;
 
 /*--------------------- Layout and Typography ----------------------------*/
 body {
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
   font-size: 15px;
   line-height: 22px;
-  background: lighten(@base_gray, 15%);
-  color: darken(@dark_green, 16%);
-  text-shadow: 1px 1px 0 lighten(@base_gray, 45%);
+  background: lighten($base_gray, 15%);
+  color: darken($dark_green, 16%);
+  text-shadow: 1px 1px 0 lighten($base_gray, 45%);
   margin: 0; padding: 0;
 }
 a {
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 #background {
   position: fixed;
   top: 0; left: 525px; right: 0; bottom: 0;
-  background: @background_green;
+  background: $background_green;
   border-left: 1px solid #e5e5ee;
   z-index: -1;
 }
@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
         border-top: 1px solid #eee;
       }
         #jump_page .source:hover {
-          background: @background_green;
+          background: $background_green;
         }
         #jump_page .source:first-child {
         }
@@ -82,7 +82,7 @@ table td {
     max-width: 450px;
     min-width: 450px;
     min-height: 5px;
-    border-right: 1px solid lighten(@base_gray, 18%);
+    border-right: 1px solid lighten($base_gray, 18%);
     padding: 10px 25px 1px 50px;
     overflow-x: hidden;
     vertical-align: top;
@@ -93,8 +93,8 @@ table td {
       padding-left: 15px;
     }
     .docs p tt, .docs p code {
-      background: lighten(@background_green, 14%);
-      border: 1px solid darken(@background_green, 15%);
+      background: lighten($background_green, 14%);
+      border: 1px solid darken($background_green, 15%);
       font-size: 12px;
       padding: 0 0.2em;
     }
@@ -118,8 +118,8 @@ table td {
     padding: 14px 15px 16px 25px;
     width: 100%;
     vertical-align: top;
-    background: lighten(@background_green, 14%);
-    border-left: 1px solid darken(@background_green, 15%);
+    background: lighten($background_green, 14%);
+    border-left: 1px solid darken($background_green, 15%);
   }
     pre, tt, code {
       font-size: 12px; line-height: 18px;

@@ -5,33 +5,28 @@ body {
   line-height: 22px;
   background: #efefeb;
   color: #303527;
-  text-shadow: 1px 1px 0 #ffffff;
+  text-shadow: 1px 1px 0 white;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 a {
-  color: #261a3b;
-}
+  color: #261a3b; }
+
 a:visited {
-  color: #261a3b;
-}
+  color: #261a3b; }
+
 p {
-  margin: 0 0 15px 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0px 0 15px 0;
-}
+  margin: 0 0 15px 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px 0 15px 0; }
+
 h1 {
-  margin-top: 40px;
-}
+  margin-top: 40px; }
+
 #container {
-  position: relative;
-}
+  position: relative; }
+
 #background {
   position: fixed;
   top: 0;
@@ -40,8 +35,8 @@ h1 {
   bottom: 0;
   background: #ced6bc;
   border-left: 1px solid #e5e5ee;
-  z-index: -1;
-}
+  z-index: -1; }
+
 #jump_to, #jump_page {
   background: white;
   -webkit-box-shadow: 0 0 25px #777;
@@ -51,38 +46,38 @@ h1 {
   font: 10px Arial;
   text-transform: uppercase;
   cursor: pointer;
-  text-align: right;
-}
+  text-align: right; }
+
 #jump_to, #jump_wrapper {
   position: fixed;
   right: 0;
   top: 0;
-  padding: 5px 10px;
-}
+  padding: 5px 10px; }
+
 #jump_wrapper {
   padding: 0;
-  display: none;
-}
+  display: none; }
+
 #jump_to:hover #jump_wrapper {
-  display: block;
-}
+  display: block; }
+
 #jump_page {
   padding: 5px 0 3px;
-  margin: 0 0 25px 25px;
-}
+  margin: 0 0 25px 25px; }
+
 #jump_page .source {
   display: block;
   padding: 5px 10px;
   text-decoration: none;
-  border-top: 1px solid #eee;
-}
+  border-top: 1px solid #eee; }
+
 #jump_page .source:hover {
-  background: #ced6bc;
-}
+  background: #ced6bc; }
+
 table td {
   border: 0;
-  outline: 0;
-}
+  outline: 0; }
+
 td.docs, th.docs {
   max-width: 450px;
   min-width: 450px;
@@ -91,21 +86,21 @@ td.docs, th.docs {
   padding: 10px 25px 1px 50px;
   overflow-x: hidden;
   vertical-align: top;
-  text-align: left;
-}
+  text-align: left; }
+
 .docs pre {
   margin: 15px 0 15px;
-  padding-left: 15px;
-}
+  padding-left: 15px; }
+
 .docs p tt, .docs p code {
   background: #eef1e8;
   border: 1px solid #abb98d;
   font-size: 12px;
-  padding: 0 0.2em;
-}
+  padding: 0 0.2em; }
+
 .pilwrap {
-  position: relative;
-}
+  position: relative; }
+
 .pilcrow {
   font: 12px Arial;
   text-decoration: none;
@@ -115,293 +110,293 @@ td.docs, th.docs {
   left: -20px;
   padding: 1px 2px;
   opacity: 0;
-  -webkit-transition: opacity 0.2s linear;
-}
+  -webkit-transition: opacity 0.2s linear; }
+
 td.docs:hover .pilcrow {
-  opacity: 1;
-}
+  opacity: 1; }
+
 td.code, th.code {
   padding: 14px 15px 16px 25px;
   width: 100%;
   vertical-align: top;
   background: #eef1e8;
-  border-left: 1px solid #abb98d;
-}
+  border-left: 1px solid #abb98d; }
+
 pre, tt, code {
   font-size: 12px;
   line-height: 18px;
   font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 /*---------------------- Syntax Highlighting -----------------------------*/
 td.linenos {
   background-color: #f0f0f0;
-  padding-right: 10px;
-}
+  padding-right: 10px; }
+
 span.lineno {
   background-color: #f0f0f0;
-  padding: 0 5px 0 5px;
-}
+  padding: 0 5px 0 5px; }
+
 body .hll {
-  background-color: #ffffcc;
-}
+  background-color: #ffffcc; }
+
 body .c {
   color: #408080;
-  font-style: italic;
-}
+  font-style: italic; }
+
 /* Comment */
 body .err {
-  border: 1px solid #ff0000;
-}
+  border: 1px solid #FF0000; }
+
 /* Error */
 body .k {
-  color: #954121;
-}
+  color: #954121; }
+
 /* Keyword */
 body .o {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Operator */
 body .cm {
   color: #408080;
-  font-style: italic;
-}
+  font-style: italic; }
+
 /* Comment.Multiline */
 body .cp {
-  color: #bc7a00;
-}
+  color: #BC7A00; }
+
 /* Comment.Preproc */
 body .c1 {
   color: #408080;
-  font-style: italic;
-}
+  font-style: italic; }
+
 /* Comment.Single */
 body .cs {
   color: #408080;
-  font-style: italic;
-}
+  font-style: italic; }
+
 /* Comment.Special */
 body .gd {
-  color: #a00000;
-}
+  color: #A00000; }
+
 /* Generic.Deleted */
 body .ge {
-  font-style: italic;
-}
+  font-style: italic; }
+
 /* Generic.Emph */
 body .gr {
-  color: #ff0000;
-}
+  color: #FF0000; }
+
 /* Generic.Error */
 body .gh {
   color: #000080;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Generic.Heading */
 body .gi {
-  color: #00a000;
-}
+  color: #00A000; }
+
 /* Generic.Inserted */
 body .go {
-  color: #808080;
-}
+  color: #808080; }
+
 /* Generic.Output */
 body .gp {
   color: #000080;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Generic.Prompt */
 body .gs {
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Generic.Strong */
 body .gu {
   color: #800080;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Generic.Subheading */
 body .gt {
-  color: #0040d0;
-}
+  color: #0040D0; }
+
 /* Generic.Traceback */
 body .kc {
-  color: #954121;
-}
+  color: #954121; }
+
 /* Keyword.Constant */
 body .kd {
   color: #954121;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Keyword.Declaration */
 body .kn {
   color: #954121;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Keyword.Namespace */
 body .kp {
-  color: #954121;
-}
+  color: #954121; }
+
 /* Keyword.Pseudo */
 body .kr {
   color: #954121;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Keyword.Reserved */
 body .kt {
-  color: #b00040;
-}
+  color: #B00040; }
+
 /* Keyword.Type */
 body .m {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Literal.Number */
 body .s {
-  color: #219161;
-}
+  color: #219161; }
+
 /* Literal.String */
 body .na {
-  color: #7d9029;
-}
+  color: #7D9029; }
+
 /* Name.Attribute */
 body .nb {
-  color: #954121;
-}
+  color: #954121; }
+
 /* Name.Builtin */
 body .nc {
   color: #0000FF;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Name.Class */
 body .no {
-  color: #880000;
-}
+  color: #880000; }
+
 /* Name.Constant */
 body .nd {
-  color: #aa22ff;
-}
+  color: #AA22FF; }
+
 /* Name.Decorator */
 body .ni {
   color: #999999;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Name.Entity */
 body .ne {
   color: #D2413A;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Name.Exception */
 body .nf {
-  color: #0000ff;
-}
+  color: #0000FF; }
+
 /* Name.Function */
 body .nl {
-  color: #a0a000;
-}
+  color: #A0A000; }
+
 /* Name.Label */
 body .nn {
   color: #0000FF;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Name.Namespace */
 body .nt {
   color: #954121;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Name.Tag */
 body .nv {
-  color: #19469d;
-}
+  color: #19469D; }
+
 /* Name.Variable */
 body .ow {
   color: #AA22FF;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Operator.Word */
 body .w {
-  color: #bbbbbb;
-}
+  color: #bbbbbb; }
+
 /* Text.Whitespace */
 body .mf {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Literal.Number.Float */
 body .mh {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Literal.Number.Hex */
 body .mi {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Literal.Number.Integer */
 body .mo {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Literal.Number.Oct */
 body .sb {
-  color: #219161;
-}
+  color: #219161; }
+
 /* Literal.String.Backtick */
 body .sc {
-  color: #219161;
-}
+  color: #219161; }
+
 /* Literal.String.Char */
 body .sd {
   color: #219161;
-  font-style: italic;
-}
+  font-style: italic; }
+
 /* Literal.String.Doc */
 body .s2 {
-  color: #219161;
-}
+  color: #219161; }
+
 /* Literal.String.Double */
 body .se {
   color: #BB6622;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Literal.String.Escape */
 body .sh {
-  color: #219161;
-}
+  color: #219161; }
+
 /* Literal.String.Heredoc */
 body .si {
   color: #BB6688;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /* Literal.String.Interpol */
 body .sx {
-  color: #954121;
-}
+  color: #954121; }
+
 /* Literal.String.Other */
 body .sr {
-  color: #bb6688;
-}
+  color: #BB6688; }
+
 /* Literal.String.Regex */
 body .s1 {
-  color: #219161;
-}
+  color: #219161; }
+
 /* Literal.String.Single */
 body .ss {
-  color: #19469d;
-}
+  color: #19469D; }
+
 /* Literal.String.Symbol */
 body .bp {
-  color: #954121;
-}
+  color: #954121; }
+
 /* Name.Builtin.Pseudo */
 body .vc {
-  color: #19469d;
-}
+  color: #19469D; }
+
 /* Name.Variable.Class */
 body .vg {
-  color: #19469d;
-}
+  color: #19469D; }
+
 /* Name.Variable.Global */
 body .vi {
-  color: #19469d;
-}
+  color: #19469D; }
+
 /* Name.Variable.Instance */
 body .il {
-  color: #666666;
-}
+  color: #666666; }
+
 /* Literal.Number.Integer.Long */
