@@ -1,5 +1,7 @@
 (function() {
-  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, update, _fn;
+  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, update, _fn;
+
+  root = this;
 
   CANVAS_WIDTH = 960;
 

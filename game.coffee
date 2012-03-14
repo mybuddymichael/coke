@@ -5,6 +5,9 @@
 
 # ### Settings
 
+# Save the root object, `window`.
+root = this;
+
 # Set width and height constants for the program.
 CANVAS_WIDTH  = 960
 CANVAS_HEIGHT = 640
