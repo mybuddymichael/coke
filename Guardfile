@@ -1,5 +1,5 @@
 guard 'coffeescript' do
-  watch(%r{^.+\.coffee$})
+  watch(%r{.+\.coffee$})
 end
 
 guard 'sass', output: 'style' do
