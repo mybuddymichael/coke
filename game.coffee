@@ -43,11 +43,6 @@ Number::clamp = (min, max) ->
 Array::last = ->
   @[@length - 1]
 
-# `filter()` returns a new array with all instances of the given element
-# removed. For example, `[1, 2, 1, 3].filter(1)` would return `[2, 3]`.
-Array::filter = (v) ->
-  x for x in @ when x!=v
-
 
 # ### Canvas
 
@@ -127,7 +122,7 @@ for control, direction of CONTROLS
     $(document).bind('keydown', control, ->
       keysPressed.push(direction))
     $(document).bind('keyup', control, ->
-      keysPressed = keysPressed.filter(direction))
+      keysPressed = keysPressed.filter((x) -> x is not direction))
 
 
 # ### Game entities

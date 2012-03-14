@@ -134,19 +134,6 @@ bounds.</p>
   <span class="err">@</span><span class="p">[</span><span class="nx">@length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></pre></div>
       </td>
     </tr>
-    <tr id='section-10'>
-      <td class=docs>
-        <div class="pilwrap">
-          <a class="pilcrow" href="#section-10">&#182;</a>
-        </div>
-        <p><code>filter()</code> returns a new array with all instances of the given element
-removed. For example, <code>[1, 2, 1, 3].filter(1)</code> would return <code>[2, 3]</code>.</p>
-      </td>
-      <td class=code>
-        <div class='highlight'><pre><span class="nb">Array</span><span class="o">::</span><span class="nv">filter = </span><span class="nf">(v) -&gt;</span>
-  <span class="nx">x</span> <span class="k">for</span> <span class="nx">x</span> <span class="k">in</span> <span class="err">@</span> <span class="k">when</span> <span class="nx">x</span><span class="o">!=</span><span class="nx">v</span></pre></div>
-      </td>
-    </tr>
     <tr id='section-Canvas'>
       <td class=docs>
         <div class="pilwrap">
@@ -158,10 +145,10 @@ removed. For example, <code>[1, 2, 1, 3].filter(1)</code> would return <code>[2,
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-12'>
+    <tr id='section-11'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-12">&#182;</a>
+          <a class="pilcrow" href="#section-11">&#182;</a>
         </div>
         <p>Create the canvas-relevant variables now, so they will be in the scope of the
 main program.</p>
@@ -172,10 +159,10 @@ main program.</p>
 <span class="nv">context = </span><span class="kc">null</span></pre></div>
       </td>
     </tr>
-    <tr id='section-13'>
+    <tr id='section-12'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-13">&#182;</a>
+          <a class="pilcrow" href="#section-12">&#182;</a>
         </div>
         <p>Have jQuery wait for the document to be ready.</p>
       </td>
@@ -183,10 +170,10 @@ main program.</p>
         <div class='highlight'><pre><span class="nx">$</span> <span class="o">-&gt;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-14'>
+    <tr id='section-13'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-14">&#182;</a>
+          <a class="pilcrow" href="#section-13">&#182;</a>
         </div>
         <p>Get the <code>canvas</code> element as a jQuery object.</p>
       </td>
@@ -194,10 +181,10 @@ main program.</p>
         <div class='highlight'><pre>  <span class="nv">canvasObject = </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-15'>
+    <tr id='section-14'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-15">&#182;</a>
+          <a class="pilcrow" href="#section-14">&#182;</a>
         </div>
         <p>Set the <code>canvas</code>&rsquo;s attributes using the settings from above.</p>
       </td>
@@ -205,10 +192,10 @@ main program.</p>
         <div class='highlight'><pre>  <span class="nx">canvasObject</span><span class="p">.</span><span class="nx">attr</span><span class="p">({</span><span class="nv">height: </span><span class="nx">CANVAS_HEIGHT</span><span class="p">,</span> <span class="nv">width: </span><span class="nx">CANVAS_WIDTH</span><span class="p">})</span></pre></div>
       </td>
     </tr>
-    <tr id='section-16'>
+    <tr id='section-15'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-16">&#182;</a>
+          <a class="pilcrow" href="#section-15">&#182;</a>
         </div>
         <p>Retrieve the actual <code>canvas</code> element from the jQuery object.</p>
       </td>
@@ -216,10 +203,10 @@ main program.</p>
         <div class='highlight'><pre>  <span class="nv">canvasElement = </span><span class="nx">canvasObject</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-17'>
+    <tr id='section-16'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-17">&#182;</a>
+          <a class="pilcrow" href="#section-16">&#182;</a>
         </div>
         <p>Get the <code>canvas</code> context from the <code>canvas</code> element. The context is the
 actual point of interaction for all drawing logic, as we&rsquo;ll see later.</p>
@@ -239,10 +226,10 @@ actual point of interaction for all drawing logic, as we&rsquo;ll see later.</p>
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-19'>
+    <tr id='section-18'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-19">&#182;</a>
+          <a class="pilcrow" href="#section-18">&#182;</a>
         </div>
         <p><code>mainLoop()</code> is the, well, main looping function that will be called at a
 regular interval by one of <code>canvas</code>&rsquo;s animation functions, as we&rsquo;ll see
@@ -254,10 +241,10 @@ below.</p>
   <span class="nx">draw</span><span class="p">()</span></pre></div>
       </td>
     </tr>
-    <tr id='section-20'>
+    <tr id='section-19'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-20">&#182;</a>
+          <a class="pilcrow" href="#section-19">&#182;</a>
         </div>
         <p>Some of the more modern browsers have support for a smoother animation loop
 called <code>requestAnimationFrame</code>. If the browser does support it, assign it to
@@ -272,10 +259,10 @@ called <code>requestAnimationFrame</code>. If the browser does support it, assig
   <span class="kc">null</span></pre></div>
       </td>
     </tr>
-    <tr id='section-21'>
+    <tr id='section-20'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-21">&#182;</a>
+          <a class="pilcrow" href="#section-20">&#182;</a>
         </div>
         <p>Like above, if <code>animate</code> is anything other than <code>null</code> (meaning the browser
 supports <code>requestAnimationFrame</code>), create a <code>recursiveAnimate()</code> function,
@@ -289,10 +276,10 @@ for Chrome, the <code>canvas</code> element.</p>
     <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-22'>
+    <tr id='section-21'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-22">&#182;</a>
+          <a class="pilcrow" href="#section-21">&#182;</a>
         </div>
         <p>Call <code>animate</code> as in <code>recursiveAnimate()</code> to get the recursive ball
 rolling on the animation cycle.</p>
@@ -301,10 +288,10 @@ rolling on the animation cycle.</p>
         <div class='highlight'><pre>  <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-23'>
+    <tr id='section-22'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-23">&#182;</a>
+          <a class="pilcrow" href="#section-22">&#182;</a>
         </div>
         <p>And if the browser <em>does not</em> support <code>requestAnimationFrame</code>, resort to
 <code>canvas</code>&rsquo;s <code>setInterval</code>, which works but which stutters more.</p>
@@ -325,10 +312,10 @@ rolling on the animation cycle.</p>
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-25'>
+    <tr id='section-24'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-25">&#182;</a>
+          <a class="pilcrow" href="#section-24">&#182;</a>
         </div>
         <p>Create an array for storing which keys have been pressed. This is polled
 later for the last element, so that the player can only move in one
@@ -338,10 +325,10 @@ direction at a time.</p>
         <div class='highlight'><pre><span class="nv">keysPressed = </span><span class="p">[]</span></pre></div>
       </td>
     </tr>
-    <tr id='section-26'>
+    <tr id='section-25'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-26">&#182;</a>
+          <a class="pilcrow" href="#section-25">&#182;</a>
         </div>
         <p>Iterate over the <code>CONTROLS</code>, using
 <a href="https://github.com/jeresig/jquery.hotkeys">jQuery.hotkeys</a> to bind each
@@ -353,7 +340,7 @@ direction at a time.</p>
     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
       <span class="nx">keysPressed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span>
     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="o">-&gt;</span>
-      <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">direction</span><span class="p">))</span></pre></div>
+      <span class="nv">keysPressed = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nf">(x) -&gt;</span> <span class="nx">x</span> <span class="o">is</span> <span class="o">not</span> <span class="nx">direction</span><span class="p">))</span></pre></div>
       </td>
     </tr>
     <tr id='section-Game_entities'>
@@ -374,10 +361,10 @@ direction at a time.</p>
     <span class="vi">@movementFactor = </span><span class="mi">2</span></pre></div>
       </td>
     </tr>
-    <tr id='section-28'>
+    <tr id='section-27'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-28">&#182;</a>
+          <a class="pilcrow" href="#section-27">&#182;</a>
         </div>
         <p><code>Player.update()</code> is called by the higher level <code>update()</code> function, as
 we&rsquo;ll see below, which is turn called by <code>mainLoop()</code>.</p>
@@ -386,10 +373,10 @@ we&rsquo;ll see below, which is turn called by <code>mainLoop()</code>.</p>
         <div class='highlight'><pre>  <span class="nv">update: </span><span class="o">-&gt;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-29'>
+    <tr id='section-28'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-29">&#182;</a>
+          <a class="pilcrow" href="#section-28">&#182;</a>
         </div>
         <p>If the player is dead square on a grid unit, fetch the last key pressed,
 otherwise the player&rsquo;s direction and movement should be locked.  This
@@ -399,10 +386,10 @@ makes sure the player character never goes off the 32*32 grid.</p>
         <div class='highlight'><pre>    <span class="vi">@keyPress = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">last</span><span class="p">()</span> <span class="nx">unless</span> <span class="p">(</span><span class="nx">@y</span><span class="o">%</span><span class="nx">GRID</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">or</span> <span class="nx">@x</span><span class="o">%</span><span class="nx">GRID</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-30'>
+    <tr id='section-29'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-30">&#182;</a>
+          <a class="pilcrow" href="#section-29">&#182;</a>
         </div>
         <p>Use the current key press to turn the player and begin moving in that
 direction.</p>
@@ -423,10 +410,10 @@ direction.</p>
         <span class="vi">@direction = </span><span class="s1">&#39;right&#39;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-31'>
+    <tr id='section-30'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-31">&#182;</a>
+          <a class="pilcrow" href="#section-30">&#182;</a>
         </div>
         <p>Prevent the player from going off the screen by <code>clamp</code>ing him down.</p>
       </td>
@@ -435,10 +422,10 @@ direction.</p>
     <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">CANVAS_HEIGHT</span> <span class="o">-</span> <span class="nx">GRID</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-32'>
+    <tr id='section-31'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-32">&#182;</a>
+          <a class="pilcrow" href="#section-31">&#182;</a>
         </div>
         <p><code>Player.draw()</code> is called every <code>canvas</code> update cycle, just like
 <code>Player.update()</code>. This is what draws and animates the player sprite.</p>
@@ -447,10 +434,10 @@ direction.</p>
         <div class='highlight'><pre>  <span class="nv">draw: </span><span class="o">-&gt;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-33'>
+    <tr id='section-32'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-33">&#182;</a>
+          <a class="pilcrow" href="#section-32">&#182;</a>
         </div>
         <p><code>getImageX()</code> is a function (defined below) that returns the x-coordinate
 for the sprite section that needs to be drawn.</p>
@@ -459,10 +446,10 @@ for the sprite section that needs to be drawn.</p>
         <div class='highlight'><pre>    <span class="vi">@imageX = </span><span class="nx">@getImageX</span><span class="p">()</span></pre></div>
       </td>
     </tr>
-    <tr id='section-34'>
+    <tr id='section-33'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-34">&#182;</a>
+          <a class="pilcrow" href="#section-33">&#182;</a>
         </div>
         <p>Here we actually draw the image on the <code>canvas</code>. We pass along the sprite
 sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</code>).</p>
@@ -482,10 +469,10 @@ sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</cod
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-36'>
+    <tr id='section-35'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-36">&#182;</a>
+          <a class="pilcrow" href="#section-35">&#182;</a>
         </div>
         <p><code>Player.getImageX()</code> used by <code>Player.draw()</code>.  It fetches the player&rsquo;s
 direction, and then determines if the player is in movement by using moduli.
@@ -523,10 +510,10 @@ which section of the player&rsquo;s image to draw.</p>
           <span class="mi">96</span></pre></div>
       </td>
     </tr>
-    <tr id='section-37'>
+    <tr id='section-36'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-37">&#182;</a>
+          <a class="pilcrow" href="#section-36">&#182;</a>
         </div>
         <p>Create an instance of the <code>Player</code> class.</p>
       </td>
@@ -545,10 +532,10 @@ which section of the player&rsquo;s image to draw.</p>
         <div class='highlight'><pre></pre></div>
       </td>
     </tr>
-    <tr id='section-39'>
+    <tr id='section-38'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-39">&#182;</a>
+          <a class="pilcrow" href="#section-38">&#182;</a>
         </div>
         <p><code>update()</code> and <code>draw()</code> are called by the <code>mainLoop()</code> and respectively
 update and draw each individual entity, thus bringing the game logic full
