@@ -84,6 +84,7 @@ canvas {
 
 #coke {
   background-image: url("../images/coke.png");
+  background-size: 289px 81px;
   height: 81px;
   width: 289px;
   text-indent: -9999px;
@@ -100,6 +101,7 @@ canvas {
     background-image: url("../images/coke@2x.png"); } }
 #subtitle {
   background-image: url("../images/a_canvas_game.png");
+  background-size: 249px 25px;
   height: 25px;
   width: 249px;
   text-indent: -9999px;

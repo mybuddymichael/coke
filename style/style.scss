@@ -9,6 +9,7 @@
 
 @mixin image-replace ($height, $width, $url) {
   background-image: url('#{$url}');
+  background-size: $width $height;
   height: $height;
   width: $width;
   text-indent: -9999px;
