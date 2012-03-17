@@ -95,6 +95,9 @@ canvas {
   #coke a {
     outline: none; }
 
+@media (-webkit-min-device-pixel-ratio:1.5) {
+  #coke {
+    background-image: url("../images/coke@2x.png"); } }
 #subtitle {
   background-image: url("../images/a_canvas_game.png");
   height: 25px;
@@ -108,6 +111,9 @@ canvas {
   #subtitle a {
     outline: none; }
 
+@media (-webkit-min-device-pixel-ratio:1.5) {
+  #subtitle {
+    background-image: url("../images/a_canvas_game@2x.png"); } }
 #instructions {
   margin-top: 16px;
   margin-bottom: 16px;

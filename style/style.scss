@@ -81,12 +81,24 @@ canvas {
   text-align: center;
 }
 
+@media (-webkit-min-device-pixel-ratio:1.5) {
+  #coke {
+    background-image: url('../images/coke@2x.png');
+  }
+}
+
 #subtitle {
   @include image-replace(25px, 249px, '../images/a_canvas_game.png');
   margin: 16px auto 16px auto;
   color: $base0;
   font-size: 32px;
   text-align: center;
+}
+
+@media (-webkit-min-device-pixel-ratio:1.5) {
+  #subtitle {
+    background-image: url('../images/a_canvas_game@2x.png');
+  }
 }
 
 #instructions {
