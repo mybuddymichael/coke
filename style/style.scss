@@ -10,6 +10,7 @@
 @mixin image-replace ($height, $width, $url) {
   background-image: url('#{$url}');
   background-size: $width $height;
+  background-repeat: no-repeat;
   height: $height;
   width: $width;
   text-indent: -9999px;
@@ -82,7 +83,7 @@ canvas {
   text-align: center;
 }
 
-@media (-webkit-min-device-pixel-ratio:1.5) {
+@media (-webkit-min-device-pixel-ratio:2) {
   #coke {
     background-image: url('../images/coke@2x.png');
   }
@@ -96,7 +97,7 @@ canvas {
   text-align: center;
 }
 
-@media (-webkit-min-device-pixel-ratio:1.5) {
+@media (-webkit-min-device-pixel-ratio:2) {
   #subtitle {
     background-image: url('../images/a_canvas_game@2x.png');
   }

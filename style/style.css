@@ -85,6 +85,7 @@ canvas {
 #coke {
   background-image: url("../images/coke.png");
   background-size: 289px 81px;
+  background-repeat: no-repeat;
   height: 81px;
   width: 289px;
   text-indent: -9999px;
@@ -96,12 +97,13 @@ canvas {
   #coke a {
     outline: none; }
 
-@media (-webkit-min-device-pixel-ratio:1.5) {
+@media (-webkit-min-device-pixel-ratio:2) {
   #coke {
     background-image: url("../images/coke@2x.png"); } }
 #subtitle {
   background-image: url("../images/a_canvas_game.png");
   background-size: 249px 25px;
+  background-repeat: no-repeat;
   height: 25px;
   width: 249px;
   text-indent: -9999px;
@@ -113,7 +115,7 @@ canvas {
   #subtitle a {
     outline: none; }
 
-@media (-webkit-min-device-pixel-ratio:1.5) {
+@media (-webkit-min-device-pixel-ratio:2) {
   #subtitle {
     background-image: url("../images/a_canvas_game@2x.png"); } }
 #instructions {
