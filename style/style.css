@@ -113,3 +113,7 @@ canvas {
   margin-bottom: 16px;
   color: #565e45;
   text-align: center; }
+
+@media (-webkit-min-device-pixel-ratio:1.5) {
+  .replace-2x {
+    font-size: 1px; } }
