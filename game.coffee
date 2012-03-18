@@ -130,7 +130,7 @@ for control, direction of CONTROLS
 
 # ### Game entities
 
-class Player
+class Character
   constructor: ->
     @x = GRID*7
     @y = GRID*5
@@ -139,7 +139,7 @@ class Player
     @direction = 'down'
     @movementFactor = 2
 
-  # `Player.update()` is called by the higher level `update()` function, as
+  # `Character.update()` is called by the higher level `update()` function, as
   # we'll see below, which is turn called by `mainLoop()`.
   update: ->
 
@@ -168,8 +168,8 @@ class Player
     @x = @x.clamp(0, CANVAS_WIDTH - GRID)
     @y = @y.clamp(0, CANVAS_HEIGHT - GRID)
 
-  # `Player.draw()` is called every `canvas` update cycle, just like
-  # `Player.update()`. This is what draws and animates the player sprite.
+  # `Character.draw()` is called every `canvas` update cycle, just like
+  # `Character.update()`. This is what draws and animates the player sprite.
   draw: ->
 
     # `getImageX()` is a function (defined below) that returns the x-coordinate
@@ -180,9 +180,9 @@ class Player
     # sheet to use (`@image`), the x-coordinate to draw (`@imageX`).
     context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
 
-  # #### Player helpers
+  # #### Character helpers
 
-  # `Player.getImageX()` used by `Player.draw()`.  It fetches the player's
+  # `Character.getImageX()` used by `Character.draw()`.  It fetches the player's
   # direction, and then determines if the player is in movement by using moduli.
   # If the player _is_ in movement, it uses additional calculation to decide
   # which section of the player's image to draw.
@@ -216,8 +216,8 @@ class Player
           96
 
 
-# Create an instance of the `Player` class.
-player = new Player
+# Create an instance of the `Character` class.
+player = new Character
 
 
 # ### High-level game methods
