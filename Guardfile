@@ -7,7 +7,7 @@ guard 'sass', output: 'style' do
 end
 
 guard 'rocco', :dir => 'doc/', :stylesheet => '../style/doc.css' do
-  watch(%r{^.+\.coffee$})
+  watch(%r{[^test].+\.coffee$})
 end
 
 guard 'livereload' do
