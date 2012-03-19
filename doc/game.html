@@ -8,6 +8,15 @@
 <body>
 <div id='container'>
   <div id="background"></div>
+  <div id="jump_to">
+    Jump To &hellip;
+    <div id="jump_wrapper">
+      <div id="jump_page">
+          <a class="source" href="game.html">game.coffee</a>
+          <a class="source" href="test/utility.html">utility.coffee</a>
+      </div>
+    </div>
+  </div>
   <table cellspacing=0 cellpadding=0>
   <thead>
     <tr>
@@ -362,7 +371,7 @@ direction at a time.</p>
         <h3>Game entities</h3>
       </td>
       <td class=code>
-        <div class='highlight'><pre><span class="k">class</span> <span class="nx">Player</span>
+        <div class='highlight'><pre><span class="k">class</span> <span class="nx">Character</span>
   <span class="nv">constructor: </span><span class="o">-&gt;</span>
     <span class="vi">@x = </span><span class="nx">GRID</span><span class="o">*</span><span class="mi">7</span>
     <span class="vi">@y = </span><span class="nx">GRID</span><span class="o">*</span><span class="mi">5</span>
@@ -377,7 +386,7 @@ direction at a time.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-28">&#182;</a>
         </div>
-        <p><code>Player.update()</code> is called by the higher level <code>update()</code> function, as
+        <p><code>Character.update()</code> is called by the higher level <code>update()</code> function, as
 we&rsquo;ll see below, which is turn called by <code>mainLoop()</code>.</p>
       </td>
       <td class=code>
@@ -438,8 +447,8 @@ direction.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-32">&#182;</a>
         </div>
-        <p><code>Player.draw()</code> is called every <code>canvas</code> update cycle, just like
-<code>Player.update()</code>. This is what draws and animates the player sprite.</p>
+        <p><code>Character.draw()</code> is called every <code>canvas</code> update cycle, just like
+<code>Character.update()</code>. This is what draws and animates the player sprite.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre>  <span class="nv">draw: </span><span class="o">-&gt;</span></pre></div>
@@ -469,12 +478,12 @@ sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</cod
         <div class='highlight'><pre>    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">@image</span><span class="p">,</span> <span class="nx">@imageX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span></pre></div>
       </td>
     </tr>
-    <tr id='section-Player_helpers'>
+    <tr id='section-Character_helpers'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-Player_helpers">&#182;</a>
+          <a class="pilcrow" href="#section-Character_helpers">&#182;</a>
         </div>
-        <h4>Player helpers</h4>
+        <h4>Character helpers</h4>
       </td>
       <td class=code>
         <div class='highlight'><pre></pre></div>
@@ -485,7 +494,7 @@ sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</cod
         <div class="pilwrap">
           <a class="pilcrow" href="#section-36">&#182;</a>
         </div>
-        <p><code>Player.getImageX()</code> used by <code>Player.draw()</code>.  It fetches the player&rsquo;s
+        <p><code>Character.getImageX()</code> used by <code>Character.draw()</code>.  It fetches the player&rsquo;s
 direction, and then determines if the player is in movement by using moduli.
 If the player <em>is</em> in movement, it uses additional calculation to decide
 which section of the player&rsquo;s image to draw.</p>
@@ -526,10 +535,10 @@ which section of the player&rsquo;s image to draw.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-37">&#182;</a>
         </div>
-        <p>Create an instance of the <code>Player</code> class.</p>
+        <p>Create an instance of the <code>Character</code> class.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><span class="nv">player = </span><span class="k">new</span> <span class="nx">Player</span></pre></div>
+        <div class='highlight'><pre><span class="nv">player = </span><span class="k">new</span> <span class="nx">Character</span></pre></div>
       </td>
     </tr>
     <tr id='section-High-level_game_methods'>
