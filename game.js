@@ -1,7 +1,9 @@
 (function() {
-  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, FPS, GRID, Player, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, update, _fn;
+  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, Character, Coke, FPS, GRID, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, update, _fn;
 
   root = this;
+
+  Coke = root.Coke = {};
 
   CANVAS_WIDTH = 960;
 
@@ -80,9 +82,9 @@
     _fn(control, direction);
   }
 
-  Player = (function() {
+  Coke.Character = (function() {
 
-    function Player() {
+    function Character() {
       this.x = GRID * 7;
       this.y = GRID * 5;
       this.image = new Image;
@@ -91,7 +93,7 @@
       this.movementFactor = 2;
     }
 
-    Player.prototype.update = function() {
+    Character.prototype.update = function() {
       if (!(this.y % GRID !== 0 || this.x % GRID !== 0)) {
         this.keyPress = keysPressed.last();
       }
@@ -116,12 +118,12 @@
       return this.y = this.y.clamp(0, CANVAS_HEIGHT - GRID);
     };
 
-    Player.prototype.draw = function() {
+    Character.prototype.draw = function() {
       this.imageX = this.getImageX();
       return context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
     };
 
-    Player.prototype.getImageX = function() {
+    Character.prototype.getImageX = function() {
       var _ref, _ref2, _ref3, _ref4;
       switch (this.direction) {
         case 'up':
@@ -162,11 +164,13 @@
       }
     };
 
-    return Player;
+    return Character;
 
   })();
 
-  player = new Player;
+  Character = Coke.Character;
+
+  player = new Character;
 
   update = function() {
     return player.update();

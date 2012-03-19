@@ -8,6 +8,9 @@
 # Save the root object, `window`.
 root = this;
 
+# Set Coke as this programs global variable object.
+Coke = root.Coke = {}
+
 # Set width and height constants for the program.
 CANVAS_WIDTH  = 960
 CANVAS_HEIGHT = 640
@@ -130,7 +133,7 @@ for control, direction of CONTROLS
 
 # ### Game entities
 
-class Character
+class Coke.Character
   constructor: ->
     @x = GRID*7
     @y = GRID*5
@@ -214,6 +217,8 @@ class Character
           288
         else
           96
+
+Character = Coke.Character
 
 
 # Create an instance of the `Character` class.
