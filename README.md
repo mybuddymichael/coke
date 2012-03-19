@@ -17,4 +17,4 @@ in-sync with `master`. Usage requires a modern browser with support for the
     $ open index.html
 
 
-Copyright © 2012 Michael Hanson; see COPYING.
+© Michael Hanson; see COPYING.
