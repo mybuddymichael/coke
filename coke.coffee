@@ -3,7 +3,7 @@
 # Check out the [full source on GitHub](https://github.com/mybuddymichael/coke).
 
 
-# ### Settings
+# ### Setup
 
 # Save the root object, `window`.
 root = this;
