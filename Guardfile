@@ -10,6 +10,6 @@ guard 'rocco', :dir => 'doc/', :stylesheet => '../style/doc.css' do
   watch(%r{^[^test/].+\.coffee$})
 end
 
-guard 'livereload' do
+guard 'livereload', apply_js_live: false do
   watch(%r{^.+\.(js|css|html|png)$})
 end
