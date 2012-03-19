@@ -12,5 +12,4 @@ end
 
 guard 'livereload' do
   watch(%r{^.+\.(js|css|html|png)$})
-  watch(%r{^images/.+\.png})
 end
