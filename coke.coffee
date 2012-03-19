@@ -8,7 +8,7 @@
 # Save the root object, `window`.
 root = this;
 
-# Set Coke as this programs global variable object.
+# Set Coke as this program's global variable object.
 Coke = root.Coke = {}
 
 # Set width and height constants for the program.
