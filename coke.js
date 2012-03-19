@@ -1,5 +1,5 @@
 (function() {
-  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, Character, Coke, FPS, GRID, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, update, _fn;
+  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, Coke, FPS, GRID, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, update, _fn;
 
   root = this;
 
@@ -84,13 +84,13 @@
 
   Coke.Character = (function() {
 
-    function Character() {
-      this.x = GRID * 7;
-      this.y = GRID * 5;
+    function Character(x, y, movementFactor, direction, imageSrc) {
+      this.x = x;
+      this.y = y;
+      this.movementFactor = movementFactor;
+      this.direction = direction;
       this.image = new Image;
-      this.image.src = 'images/player.png';
-      this.direction = 'down';
-      this.movementFactor = 2;
+      this.image.src = imageSrc;
     }
 
     Character.prototype.update = function() {
@@ -168,9 +168,7 @@
 
   })();
 
-  Character = Coke.Character;
-
-  player = new Character;
+  player = new Coke.Character(GRID * 7, GRID * 5, 2, 'down', 'images/player.png');
 
   update = function() {
     return player.update();

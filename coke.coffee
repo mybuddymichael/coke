@@ -134,13 +134,9 @@ for control, direction of CONTROLS
 # ### Game entities
 
 class Coke.Character
-  constructor: ->
-    @x = GRID*7
-    @y = GRID*5
+  constructor: (@x, @y, @movementFactor, @direction, imageSrc) ->
     @image = new Image
-    @image.src = 'images/player.png'
-    @direction = 'down'
-    @movementFactor = 2
+    @image.src = imageSrc
 
   # `Character.update()` is called by the higher level `update()` function, as
   # we'll see below, which is turn called by `mainLoop()`.
@@ -218,11 +214,9 @@ class Coke.Character
         else
           96
 
-Character = Coke.Character
-
 
 # Create an instance of the `Character` class.
-player = new Character
+player = new Coke.Character(GRID*7, GRID*5, 2, 'down', 'images/player.png')
 
 
 # ### High-level game methods
