@@ -11,30 +11,33 @@ root = this;
 # Set Coke as this program's global variable object.
 Coke = root.Coke = {}
 
-# Set width and height constants for the program.
-CANVAS_WIDTH  = 960
-CANVAS_HEIGHT = 640
+# Export the default settings.
+settings = Coke.settings =
 
-# `GRID` is the default width and height measurement of a square unit in the
-# game.
-GRID = 32
+  # Set the default width and height constants for the program.
+  canvas_width:  960
+  canvas_height: 640
 
-# The frames-per-second (FPS) value is used by the animation loop.
-FPS = 60
+  # `grid` is the default width and height measurement of a square unit in the
+  # game.
+  grid: 32
 
-# Create a hash of the controls, used later by
-# [jQuery.hotkeys](https://github.com/jeresig/jquery.hotkeys) to bind key
-# presses to movement. Both arrow keys and WASD can be used.
-CONTROLS =
-  w:      'up'
-  s:      'down'
-  a:      'left'
-  d:      'right'
+  # The frames-per-second (fps) value is used by the animation loop.
+  fps: 60
 
-  up:     'up'
-  down:   'down'
-  left:   'left'
-  right:  'right'
+  # Create a hash of the controls, used later by
+  # [jQuery.hotkeys](https://github.com/jeresig/jquery.hotkeys) to bind key
+  # presses to movement. Both arrow keys and WASD can be used.
+  controls:
+    w:      'up'
+    s:      'down'
+    a:      'left'
+    d:      'right'
+
+    up:     'up'
+    down:   'down'
+    left:   'left'
+    right:  'right'
 
 
 # ### Utility functions
@@ -65,7 +68,9 @@ $ ->
   canvasObject = $('canvas')
 
   # Set the `canvas`'s attributes using the settings from above.
-  canvasObject.attr({height: CANVAS_HEIGHT, width: CANVAS_WIDTH})
+  canvasObject.attr
+    height: settings.canvas_height
+    width: settings.canvas_width
 
   # Retrieve the actual `canvas` element from the jQuery object.
   canvasElement = canvasObject.get(0)
@@ -110,7 +115,7 @@ if animate != null
 # And if the browser _does not_ support `requestAnimationFrame`, resort to
 # `canvas`'s `setInterval`, which works but which stutters more.
 else
-  setInterval(mainLoop, 1000/FPS)
+  setInterval(mainLoop, 1000/settings.fps)
 
 
 # ### Key handling
@@ -120,10 +125,10 @@ else
 # direction at a time.
 keysPressed = []
 
-# Iterate over the `CONTROLS`, using
+# Iterate over `settings.controls`, using
 # [jQuery.hotkeys](https://github.com/jeresig/jquery.hotkeys) to bind each
 # `direction` to each `control`, or key.
-for control, direction of CONTROLS
+for control, direction of settings.controls
   do (control, direction) ->
     $(document).bind('keydown', control, ->
       keysPressed.push(direction))
@@ -145,7 +150,7 @@ class Coke.Character
     # If the player is dead square on a grid unit, fetch the last key pressed,
     # otherwise the player's direction and movement should be locked.  This
     # makes sure the player character never goes off the 32*32 grid.
-    @keyPress = keysPressed.last() unless (@y%GRID != 0 or @x%GRID != 0)
+    @keyPress = keysPressed.last() unless (@y%settings.grid != 0 or @x%settings.grid != 0)
 
     # Use the current key press to turn the player and begin moving in that
     # direction.
@@ -164,8 +169,8 @@ class Coke.Character
         @direction = 'right'
 
     # Prevent the player from going off the screen by `clamp`ing him down.
-    @x = @x.clamp(0, CANVAS_WIDTH - GRID)
-    @y = @y.clamp(0, CANVAS_HEIGHT - GRID)
+    @x = @x.clamp(0, settings.canvas_width - settings.grid)
+    @y = @y.clamp(0, settings.canvas_height - settings.grid)
 
   # `Character.draw()` is called every `canvas` update cycle, just like
   # `Character.update()`. This is what draws and animates the player sprite.
@@ -216,7 +221,7 @@ class Coke.Character
 
 
 # Create an instance of the `Character` class.
-player = new Coke.Character(GRID*7, GRID*5, 2, 'down', 'images/player.png')
+player = new Coke.Character(settings.grid*7, settings.grid*5, 2, 'down', 'images/player.png')
 
 
 # ### High-level game methods
@@ -228,5 +233,5 @@ update = ->
   player.update()
 
 draw = ->
-  context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  context.clearRect(0, 0, settings.canvas_width, settings.canvas_height)
   player.draw()

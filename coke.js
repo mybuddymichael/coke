@@ -1,27 +1,25 @@
 (function() {
-  var CANVAS_HEIGHT, CANVAS_WIDTH, CONTROLS, Coke, FPS, GRID, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, update, _fn;
+  var Coke, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, settings, update, _fn, _ref;
 
   root = this;
 
   Coke = root.Coke = {};
 
-  CANVAS_WIDTH = 960;
-
-  CANVAS_HEIGHT = 640;
-
-  GRID = 32;
-
-  FPS = 60;
-
-  CONTROLS = {
-    w: 'up',
-    s: 'down',
-    a: 'left',
-    d: 'right',
-    up: 'up',
-    down: 'down',
-    left: 'left',
-    right: 'right'
+  settings = Coke.settings = {
+    canvas_width: 960,
+    canvas_height: 640,
+    grid: 32,
+    fps: 60,
+    controls: {
+      w: 'up',
+      s: 'down',
+      a: 'left',
+      d: 'right',
+      up: 'up',
+      down: 'down',
+      left: 'left',
+      right: 'right'
+    }
   };
 
   Number.prototype.clamp = function(min, max) {
@@ -41,8 +39,8 @@
   $(function() {
     canvasObject = $('canvas');
     canvasObject.attr({
-      height: CANVAS_HEIGHT,
-      width: CANVAS_WIDTH
+      height: settings.canvas_height,
+      width: settings.canvas_width
     });
     canvasElement = canvasObject.get(0);
     return context = canvasElement.getContext('2d');
@@ -62,11 +60,12 @@
     };
     animate(recursiveAnimate, canvasElement);
   } else {
-    setInterval(mainLoop, 1000 / FPS);
+    setInterval(mainLoop, 1000 / settings.fps);
   }
 
   keysPressed = [];
 
+  _ref = settings.controls;
   _fn = function(control, direction) {
     $(document).bind('keydown', control, function() {
       return keysPressed.push(direction);
@@ -77,8 +76,8 @@
       });
     });
   };
-  for (control in CONTROLS) {
-    direction = CONTROLS[control];
+  for (control in _ref) {
+    direction = _ref[control];
     _fn(control, direction);
   }
 
@@ -94,7 +93,7 @@
     }
 
     Character.prototype.update = function() {
-      if (!(this.y % GRID !== 0 || this.x % GRID !== 0)) {
+      if (!(this.y % settings.grid !== 0 || this.x % settings.grid !== 0)) {
         this.keyPress = keysPressed.last();
       }
       switch (this.keyPress) {
@@ -114,8 +113,8 @@
           this.x += this.movementFactor;
           this.direction = 'right';
       }
-      this.x = this.x.clamp(0, CANVAS_WIDTH - GRID);
-      return this.y = this.y.clamp(0, CANVAS_HEIGHT - GRID);
+      this.x = this.x.clamp(0, settings.canvas_width - settings.grid);
+      return this.y = this.y.clamp(0, settings.canvas_height - settings.grid);
     };
 
     Character.prototype.draw = function() {
@@ -124,11 +123,11 @@
     };
 
     Character.prototype.getImageX = function() {
-      var _ref, _ref2, _ref3, _ref4;
+      var _ref2, _ref3, _ref4, _ref5;
       switch (this.direction) {
         case 'up':
           if (this.y % 32 >= 17) {
-            if ((0 <= (_ref = this.y % 64) && _ref <= 31)) {
+            if ((0 <= (_ref2 = this.y % 64) && _ref2 <= 31)) {
               return 128;
             } else {
               return 160;
@@ -138,8 +137,8 @@
           }
           break;
         case 'down':
-          if ((1 <= (_ref2 = this.y % 32) && _ref2 <= 16)) {
-            if ((32 <= (_ref3 = this.y % 64) && _ref3 <= 63)) {
+          if ((1 <= (_ref3 = this.y % 32) && _ref3 <= 16)) {
+            if ((32 <= (_ref4 = this.y % 64) && _ref4 <= 63)) {
               return 192;
             } else {
               return 224;
@@ -156,7 +155,7 @@
           }
           break;
         case 'right':
-          if ((1 <= (_ref4 = this.x % 32) && _ref4 <= 16)) {
+          if ((1 <= (_ref5 = this.x % 32) && _ref5 <= 16)) {
             return 288;
           } else {
             return 96;
@@ -168,14 +167,14 @@
 
   })();
 
-  player = new Coke.Character(GRID * 7, GRID * 5, 2, 'down', 'images/player.png');
+  player = new Coke.Character(settings.grid * 7, settings.grid * 5, 2, 'down', 'images/player.png');
 
   update = function() {
     return player.update();
   };
 
   draw = function() {
-    context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    context.clearRect(0, 0, settings.canvas_width, settings.canvas_height);
     return player.draw();
   };
 
