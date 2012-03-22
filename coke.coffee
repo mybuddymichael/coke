@@ -133,7 +133,7 @@ for control, direction of settings.controls
     $(document).bind('keydown', control, ->
       keysPressed.push(direction))
     $(document).bind('keyup', control, ->
-      keysPressed = keysPressed.filter((x) -> x is not direction))
+      keysPressed = keysPressed.filter((x) -> x isnt direction))
 
 
 # ### Game entities

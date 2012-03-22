@@ -72,7 +72,7 @@
     });
     return $(document).bind('keyup', control, function() {
       return keysPressed = keysPressed.filter(function(x) {
-        return x === !direction;
+        return x !== direction;
       });
     });
   };
