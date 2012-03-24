@@ -12,6 +12,11 @@
       testChar = new Coke.Character(0, 11);
       return equal(testChar.y, 11);
     });
+    test('movement factor set/get', 1, function() {
+      var testChar;
+      testChar = new Coke.Character(0, 0, 2);
+      return equal(testChar.movementFactor, 2);
+    });
     test('getImageXFromPosition square coordinates', 4, function() {
       var testChar;
       testChar = new Coke.Character;

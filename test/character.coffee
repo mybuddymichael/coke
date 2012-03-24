@@ -10,6 +10,10 @@ $ ->
     testChar = new Coke.Character(0, 11)
     equal testChar.y, 11
 
+  test 'movement factor set/get', 1, ->
+    testChar = new Coke.Character(0, 0, 2)
+    equal testChar.movementFactor, 2
+
   test 'getImageXFromPosition square coordinates', 4,  ->
     testChar = new Coke.Character
     equal testChar.getImageXFromPosition('up', 0, 0), 0
