@@ -103,7 +103,7 @@ animate = window.requestAnimationFrame ||
 # supports `requestAnimationFrame`), create a `recursiveAnimate()` function,
 # which calls `mainLoop()`, then calls `animate()`, passing along itself, and,
 # for Chrome, the `canvas` element.
-if animate != null
+if animate?
   recursiveAnimate = ->
     mainLoop()
     animate(recursiveAnimate, canvasElement)

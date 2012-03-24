@@ -53,7 +53,7 @@
 
   animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
 
-  if (animate !== null) {
+  if (animate != null) {
     recursiveAnimate = function() {
       mainLoop();
       return animate(recursiveAnimate, canvasElement);

@@ -305,7 +305,7 @@ which calls <code>mainLoop()</code>, then calls <code>animate()</code>, passing 
 for Chrome, the <code>canvas</code> element.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><span class="k">if</span> <span class="nx">animate</span> <span class="o">!=</span> <span class="kc">null</span>
+        <div class='highlight'><pre><span class="k">if</span> <span class="nx">animate</span><span class="o">?</span>
   <span class="nv">recursiveAnimate = </span><span class="o">-&gt;</span>
     <span class="nx">mainLoop</span><span class="p">()</span>
     <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span></pre></div>
