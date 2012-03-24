@@ -194,28 +194,28 @@ class Coke.Character
   getImageXFromPosition: (direction, x, y) ->
     switch direction
       when 'up'
-        if y%32 >= 17
-          if 0 <= y%64 <= 31
+        if y % 32 >= 17
+          if 0 <= y % 64 <= 31
             128
           else
             160
         else
            0
       when 'down'
-        if 1 <= y%32 <= 16
-          if 32 <= y%64 <= 63
+        if 1 <= y % 32 <= 16
+          if 32 <= y % 64 <= 63
             192
           else
             224
         else
            32
       when 'left'
-        if x%32 >= 17
+        if x % 32 >= 17
           256
         else
           64
       when 'right'
-        if 1 <= x%32 <= 16
+        if 1 <= x % 32 <= 16
           288
         else
           96
