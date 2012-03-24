@@ -474,7 +474,7 @@ direction.</p>
 for the sprite section that needs to be drawn.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="vi">@imageX = </span><span class="nx">@getImageX</span><span class="p">()</span></pre></div>
+        <div class='highlight'><pre>    <span class="vi">@imageX = </span><span class="nx">@getImageXFromPosition</span><span class="p">(</span><span class="nx">@direction</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">)</span></pre></div>
       </td>
     </tr>
     <tr id='section-36'>
@@ -505,37 +505,38 @@ sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</cod
         <div class="pilwrap">
           <a class="pilcrow" href="#section-38">&#182;</a>
         </div>
-        <p><code>Character.getImageX()</code> used by <code>Character.draw()</code>.  It fetches the player&rsquo;s
-direction, and then determines if the player is in movement by using moduli.
-If the player <em>is</em> in movement, it uses additional calculation to decide
-which section of the player&rsquo;s image to draw.</p>
+        <p><code>Character.getImageXFromPosition()</code> used by <code>Character.draw()</code>.  It
+takes the player&rsquo;s direction, and then determines if the player is
+in movement by using moduli. If the player <em>is</em> in movement, it uses
+additional calculation to decide which section of the player&rsquo;s image
+to draw.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>  <span class="nv">getImageX: </span><span class="o">-&gt;</span>
-    <span class="k">switch</span> <span class="nx">@direction</span>
+        <div class='highlight'><pre>  <span class="nv">getImageXFromPosition: </span><span class="nf">(direction, x, y) -&gt;</span>
+    <span class="k">switch</span> <span class="nx">direction</span>
       <span class="k">when</span> <span class="s1">&#39;up&#39;</span>
-        <span class="k">if</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&gt;=</span> <span class="mi">17</span>
-          <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">31</span>
+        <span class="k">if</span> <span class="nx">y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&gt;=</span> <span class="mi">17</span>
+          <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">31</span>
             <span class="mi">128</span>
           <span class="k">else</span>
             <span class="mi">160</span>
         <span class="k">else</span>
            <span class="mi">0</span>
       <span class="k">when</span> <span class="s1">&#39;down&#39;</span>
-        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
-          <span class="k">if</span> <span class="mi">32</span> <span class="o">&lt;=</span> <span class="nx">@y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">63</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">y</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
+          <span class="k">if</span> <span class="mi">32</span> <span class="o">&lt;=</span> <span class="nx">y</span><span class="o">%</span><span class="mi">64</span> <span class="o">&lt;=</span> <span class="mi">63</span>
             <span class="mi">192</span>
           <span class="k">else</span>
             <span class="mi">224</span>
         <span class="k">else</span>
            <span class="mi">32</span>
       <span class="k">when</span> <span class="s1">&#39;left&#39;</span>
-        <span class="k">if</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&gt;=</span> <span class="mi">17</span>
+        <span class="k">if</span> <span class="nx">x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&gt;=</span> <span class="mi">17</span>
           <span class="mi">256</span>
         <span class="k">else</span>
           <span class="mi">64</span>
       <span class="k">when</span> <span class="s1">&#39;right&#39;</span>
-        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">@x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">x</span><span class="o">%</span><span class="mi">32</span> <span class="o">&lt;=</span> <span class="mi">16</span>
           <span class="mi">288</span>
         <span class="k">else</span>
           <span class="mi">96</span></pre></div>

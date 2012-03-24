@@ -118,16 +118,16 @@
     };
 
     Character.prototype.draw = function() {
-      this.imageX = this.getImageX();
+      this.imageX = this.getImageXFromPosition(this.direction, this.x, this.y);
       return context.drawImage(this.image, this.imageX, 0, 32, 32, this.x, this.y, 32, 32);
     };
 
-    Character.prototype.getImageX = function() {
+    Character.prototype.getImageXFromPosition = function(direction, x, y) {
       var _ref2, _ref3, _ref4, _ref5;
-      switch (this.direction) {
+      switch (direction) {
         case 'up':
-          if (this.y % 32 >= 17) {
-            if ((0 <= (_ref2 = this.y % 64) && _ref2 <= 31)) {
+          if (y % 32 >= 17) {
+            if ((0 <= (_ref2 = y % 64) && _ref2 <= 31)) {
               return 128;
             } else {
               return 160;
@@ -137,8 +137,8 @@
           }
           break;
         case 'down':
-          if ((1 <= (_ref3 = this.y % 32) && _ref3 <= 16)) {
-            if ((32 <= (_ref4 = this.y % 64) && _ref4 <= 63)) {
+          if ((1 <= (_ref3 = y % 32) && _ref3 <= 16)) {
+            if ((32 <= (_ref4 = y % 64) && _ref4 <= 63)) {
               return 192;
             } else {
               return 224;
@@ -148,14 +148,14 @@
           }
           break;
         case 'left':
-          if (this.x % 32 >= 17) {
+          if (x % 32 >= 17) {
             return 256;
           } else {
             return 64;
           }
           break;
         case 'right':
-          if ((1 <= (_ref5 = this.x % 32) && _ref5 <= 16)) {
+          if ((1 <= (_ref5 = x % 32) && _ref5 <= 16)) {
             return 288;
           } else {
             return 96;

@@ -178,7 +178,7 @@ class Coke.Character
 
     # `getImageX()` is a function (defined below) that returns the x-coordinate
     # for the sprite section that needs to be drawn.
-    @imageX = @getImageX()
+    @imageX = @getImageXFromPosition(@direction, @x, @y)
 
     # Here we actually draw the image on the `canvas`. We pass along the sprite
     # sheet to use (`@image`), the x-coordinate to draw (`@imageX`).
@@ -186,35 +186,36 @@ class Coke.Character
 
   # #### Character helpers
 
-  # `Character.getImageX()` used by `Character.draw()`.  It fetches the player's
-  # direction, and then determines if the player is in movement by using moduli.
-  # If the player _is_ in movement, it uses additional calculation to decide
-  # which section of the player's image to draw.
-  getImageX: ->
-    switch @direction
+  # `Character.getImageXFromPosition()` used by `Character.draw()`.  It
+  # takes the player's direction, and then determines if the player is
+  # in movement by using moduli. If the player _is_ in movement, it uses
+  # additional calculation to decide which section of the player's image
+  # to draw.
+  getImageXFromPosition: (direction, x, y) ->
+    switch direction
       when 'up'
-        if @y%32 >= 17
-          if 0 <= @y%64 <= 31
+        if y%32 >= 17
+          if 0 <= y%64 <= 31
             128
           else
             160
         else
            0
       when 'down'
-        if 1 <= @y%32 <= 16
-          if 32 <= @y%64 <= 63
+        if 1 <= y%32 <= 16
+          if 32 <= y%64 <= 63
             192
           else
             224
         else
            32
       when 'left'
-        if @x%32 >= 17
+        if x%32 >= 17
           256
         else
           64
       when 'right'
-        if 1 <= @x%32 <= 16
+        if 1 <= x%32 <= 16
           288
         else
           96
