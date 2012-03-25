@@ -150,7 +150,8 @@ class Coke.Character
     # If the player is dead square on a grid unit, fetch the last key pressed,
     # otherwise the player's direction and movement should be locked.  This
     # makes sure the player character never goes off the 32*32 grid.
-    @keyPress = keysPressed.last() unless (@y%settings.grid != 0 or @x%settings.grid != 0)
+    if @y % settings.grid is 0 and @x % settings.grid is 0
+      @keyPress = keysPressed.last()
 
     # Use the current key press to turn the player and begin moving in that
     # direction.
@@ -222,7 +223,8 @@ class Coke.Character
 
 
 # Create an instance of the `Character` class.
-player = new Coke.Character(settings.grid*7, settings.grid*5, 2, 'down', 'images/player.png')
+player = new Coke.Character(settings.grid*7, settings.grid*5, 2, 'down',
+                            'images/player.png')
 
 
 # ### High-level game methods

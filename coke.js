@@ -93,7 +93,7 @@
     }
 
     Character.prototype.update = function() {
-      if (!(this.y % settings.grid !== 0 || this.x % settings.grid !== 0)) {
+      if (this.y % settings.grid === 0 && this.x % settings.grid === 0) {
         this.keyPress = keysPressed.last();
       }
       switch (this.keyPress) {

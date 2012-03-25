@@ -414,7 +414,8 @@ otherwise the player&rsquo;s direction and movement should be locked.  This
 makes sure the player character never goes off the 32*32 grid.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="vi">@keyPress = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">last</span><span class="p">()</span> <span class="nx">unless</span> <span class="p">(</span><span class="nx">@y</span><span class="o">%</span><span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">or</span> <span class="nx">@x</span><span class="o">%</span><span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span></pre></div>
+        <div class='highlight'><pre>    <span class="k">if</span> <span class="nx">@y</span> <span class="o">%</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span> <span class="o">is</span> <span class="mi">0</span> <span class="o">and</span> <span class="nx">@x</span> <span class="o">%</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span> <span class="o">is</span> <span class="mi">0</span>
+      <span class="vi">@keyPress = </span><span class="nx">keysPressed</span><span class="p">.</span><span class="nx">last</span><span class="p">()</span></pre></div>
       </td>
     </tr>
     <tr id='section-32'>
@@ -550,7 +551,8 @@ to draw.</p>
         <p>Create an instance of the <code>Character</code> class.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><span class="nv">player = </span><span class="k">new</span> <span class="nx">Coke</span><span class="p">.</span><span class="nx">Character</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span><span class="o">*</span><span class="mi">7</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;images/player.png&#39;</span><span class="p">)</span></pre></div>
+        <div class='highlight'><pre><span class="nv">player = </span><span class="k">new</span> <span class="nx">Coke</span><span class="p">.</span><span class="nx">Character</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span><span class="o">*</span><span class="mi">7</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;images/player.png&#39;</span><span class="p">)</span></pre></div>
       </td>
     </tr>
     <tr id='section-High-level_game_methods'>
