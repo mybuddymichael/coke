@@ -1,5 +1,5 @@
 (function() {
-  var Coke, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, player, recursiveAnimate, root, settings, update, _fn, _ref;
+  var Coke, animate, canvasElement, canvasObject, context, control, direction, draw, keysPressed, mainLoop, recursiveAnimate, root, settings, update, updateables, _fn, _ref;
 
   root = this;
 
@@ -21,6 +21,8 @@
       right: 'right'
     }
   };
+
+  updateables = Coke.updateables = [];
 
   Number.prototype.clamp = function(min, max) {
     return Math.min(Math.max(this, min), max);
@@ -62,6 +64,23 @@
   } else {
     setInterval(mainLoop, 1000 / settings.fps);
   }
+
+  update = function() {
+    var u, _i, _len;
+    for (_i = 0, _len = updateables.length; _i < _len; _i++) {
+      u = updateables[_i];
+      return u.update();
+    }
+  };
+
+  draw = function() {
+    var u, _i, _len;
+    context.clearRect(0, 0, settings.canvas_width, settings.canvas_height);
+    for (_i = 0, _len = updateables.length; _i < _len; _i++) {
+      u = updateables[_i];
+      return u.draw();
+    }
+  };
 
   keysPressed = [];
 
@@ -166,16 +185,5 @@
     return Character;
 
   })();
-
-  player = new Coke.Character(settings.grid * 7, settings.grid * 5, 2, 'down', 'images/player.png');
-
-  update = function() {
-    return player.update();
-  };
-
-  draw = function() {
-    context.clearRect(0, 0, settings.canvas_width, settings.canvas_height);
-    return player.draw();
-  };
 
 }).call(this);

@@ -39,6 +39,10 @@ settings = Coke.settings =
     left:   'left'
     right:  'right'
 
+# Create a root updateables Array, into which the user can push custom-
+# defined entities to be updated and drawn.
+updateables = Coke.updateables = []
+
 
 # ### Utility functions
 
@@ -116,6 +120,22 @@ if animate?
 # `canvas`'s `setInterval`, which works but which stutters more.
 else
   setInterval(mainLoop, 1000/settings.fps)
+
+
+# ### High-level game methods
+
+# `update()` and `draw()` are called by the `mainLoop()` and respectively
+# update and draw each individual entity, thus bringing the game logic full
+# circle.
+update = ->
+  for u in updateables
+    return u.update()
+
+
+draw = ->
+  context.clearRect(0, 0, settings.canvas_width, settings.canvas_height)
+  for u in updateables
+    return u.draw()
 
 
 # ### Key handling
@@ -222,19 +242,3 @@ class Coke.Character
           96
 
 
-# Create an instance of the `Character` class.
-player = new Coke.Character(settings.grid*7, settings.grid*5, 2, 'down',
-                            'images/player.png')
-
-
-# ### High-level game methods
-
-# `update()` and `draw()` are called by the `mainLoop()` and respectively
-# update and draw each individual entity, thus bringing the game logic full
-# circle.
-update = ->
-  player.update()
-
-draw = ->
-  context.clearRect(0, 0, settings.canvas_width, settings.canvas_height)
-  player.draw()
