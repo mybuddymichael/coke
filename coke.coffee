@@ -49,12 +49,14 @@ updateables = Coke.updateables = []
 # `clamp()` automatically sets a number to within a range, if it is outside of
 # that range. It's useful for making sure a character is staying within
 # bounds.
-Number::clamp = (min, max) ->
-  Math.min(Math.max(this, min), max)
+if typeof Number::clamp isnt 'function'
+  Number::clamp = (min, max) ->
+    Math.min(Math.max(this, min), max)
 
 # `last()` retrieves the last element of an array.
-Array::last = ->
-  @[@length - 1]
+if typeof Array::last isnt 'function'
+  Array::last = ->
+    @[@length - 1]
 
 
 # ### Canvas

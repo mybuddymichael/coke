@@ -24,13 +24,17 @@
 
   updateables = Coke.updateables = [];
 
-  Number.prototype.clamp = function(min, max) {
-    return Math.min(Math.max(this, min), max);
-  };
+  if (typeof Number.prototype.clamp !== 'function') {
+    Number.prototype.clamp = function(min, max) {
+      return Math.min(Math.max(this, min), max);
+    };
+  }
 
-  Array.prototype.last = function() {
-    return this[this.length - 1];
-  };
+  if (typeof Array.prototype.last !== 'function') {
+    Array.prototype.last = function() {
+      return this[this.length - 1];
+    };
+  }
 
   canvasObject = null;
 
