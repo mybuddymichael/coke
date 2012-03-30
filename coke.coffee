@@ -152,10 +152,9 @@ keysPressed = []
 # `direction` to each `control`, or key.
 for control, direction of settings.controls
   do (control, direction) ->
-    $(document).bind('keydown', control, ->
-      keysPressed.push(direction))
-    $(document).bind('keyup', control, ->
-      keysPressed = keysPressed.filter((x) -> x isnt direction))
+    $(document).bind 'keydown', control, -> keysPressed.push(direction)
+    $(document).bind 'keyup', control, ->
+      keysPressed = keysPressed.filter (x) -> x isnt direction
 
 
 # ### Game entities
