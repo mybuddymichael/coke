@@ -112,16 +112,16 @@ animate = window.requestAnimationFrame or
 if animate?
   recursiveAnimate = ->
     mainLoop()
-    animate(recursiveAnimate, canvasElement)
+    animate recursiveAnimate, canvasElement
 
   # Call `animate` as in `recursiveAnimate()` to get the recursive ball
   # rolling on the animation cycle.
-  animate(recursiveAnimate, canvasElement)
+  animate recursiveAnimate, canvasElement
 
 # And if the browser _does not_ support `requestAnimationFrame`, resort to
 # `canvas`'s `setInterval`, which works but which stutters more.
 else
-  setInterval(mainLoop, 1000/settings.fps)
+  setInterval mainLoop, 1000/settings.fps
 
 
 # ### High-level game methods
@@ -191,8 +191,8 @@ class Coke.Character
         @direction = 'right'
 
     # Prevent the player from going off the screen by `clamp`ing him down.
-    @x = @x.clamp(0, settings.canvas_width - settings.grid)
-    @y = @y.clamp(0, settings.canvas_height - settings.grid)
+    @x = @x.clamp 0, settings.canvas_width - settings.grid
+    @y = @y.clamp 0, settings.canvas_height - settings.grid
 
   # `Character.draw()` is called every `canvas` update cycle, just like
   # `Character.update()`. This is what draws and animates the player sprite.
@@ -200,11 +200,11 @@ class Coke.Character
 
     # `getImageX()` is a function (defined below) that returns the x-coordinate
     # for the sprite section that needs to be drawn.
-    @imageX = @getImageXFromPosition(@direction, @x, @y)
+    @imageX = @getImageXFromPosition @direction, @x, @y
 
     # Here we actually draw the image on the `canvas`. We pass along the sprite
     # sheet to use (`@image`), the x-coordinate to draw (`@imageX`).
-    context.drawImage(@image, @imageX, 0, 32, 32, @x, @y, 32, 32)
+    context.drawImage @image, @imageX, 0, 32, 32, @x, @y, 32, 32
 
   # #### Character helpers
 

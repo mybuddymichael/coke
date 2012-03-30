@@ -322,7 +322,7 @@ for Chrome, the <code>canvas</code> element.</p>
         <div class='highlight'><pre><span class="k">if</span> <span class="nx">animate</span><span class="o">?</span>
   <span class="nv">recursiveAnimate = </span><span class="o">-&gt;</span>
     <span class="nx">mainLoop</span><span class="p">()</span>
-    <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span></pre></div>
+    <span class="nx">animate</span> <span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span></pre></div>
       </td>
     </tr>
     <tr id='section-25'>
@@ -334,7 +334,7 @@ for Chrome, the <code>canvas</code> element.</p>
 rolling on the animation cycle.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>  <span class="nx">animate</span><span class="p">(</span><span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span><span class="p">)</span></pre></div>
+        <div class='highlight'><pre>  <span class="nx">animate</span> <span class="nx">recursiveAnimate</span><span class="p">,</span> <span class="nx">canvasElement</span></pre></div>
       </td>
     </tr>
     <tr id='section-26'>
@@ -347,7 +347,7 @@ rolling on the animation cycle.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre><span class="k">else</span>
-  <span class="nx">setInterval</span><span class="p">(</span><span class="nx">mainLoop</span><span class="p">,</span> <span class="mi">1000</span><span class="o">/</span><span class="nx">settings</span><span class="p">.</span><span class="nx">fps</span><span class="p">)</span></pre></div>
+  <span class="nx">setInterval</span> <span class="nx">mainLoop</span><span class="p">,</span> <span class="mi">1000</span><span class="o">/</span><span class="nx">settings</span><span class="p">.</span><span class="nx">fps</span></pre></div>
       </td>
     </tr>
     <tr id='section-High-level_game_methods'>
@@ -495,8 +495,8 @@ direction.</p>
         <p>Prevent the player from going off the screen by <code>clamp</code>ing him down.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="vi">@x = </span><span class="nx">@x</span><span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_width</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span><span class="p">)</span>
-    <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_height</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span><span class="p">)</span></pre></div>
+        <div class='highlight'><pre>    <span class="vi">@x = </span><span class="nx">@x</span><span class="p">.</span><span class="nx">clamp</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_width</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span>
+    <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_height</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span></pre></div>
       </td>
     </tr>
     <tr id='section-37'>
@@ -520,7 +520,7 @@ direction.</p>
 for the sprite section that needs to be drawn.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="vi">@imageX = </span><span class="nx">@getImageXFromPosition</span><span class="p">(</span><span class="nx">@direction</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">)</span></pre></div>
+        <div class='highlight'><pre>    <span class="vi">@imageX = </span><span class="nx">@getImageXFromPosition</span> <span class="nx">@direction</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span></pre></div>
       </td>
     </tr>
     <tr id='section-39'>
@@ -532,7 +532,7 @@ for the sprite section that needs to be drawn.</p>
 sheet to use (<code>@image</code>), the x-coordinate to draw (<code>@imageX</code>).</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">@image</span><span class="p">,</span> <span class="nx">@imageX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span></pre></div>
+        <div class='highlight'><pre>    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span> <span class="nx">@image</span><span class="p">,</span> <span class="nx">@imageX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nx">@x</span><span class="p">,</span> <span class="nx">@y</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span></pre></div>
       </td>
     </tr>
     <tr id='section-Character_helpers'>
