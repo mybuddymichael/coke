@@ -15,8 +15,8 @@ Coke = root.Coke = {}
 settings = Coke.settings =
 
   # Set the default width and height constants for the program.
-  canvas_width:  960
-  canvas_height: 640
+  canvasWidth:  960
+  canvasHeight: 640
 
   # `grid` is the default width and height measurement of a square unit in the
   # game.
@@ -75,8 +75,8 @@ $ ->
 
   # Set the `canvas`'s attributes using the settings from above.
   canvasObject.attr
-    height: settings.canvas_height
-    width: settings.canvas_width
+    height: settings.canvasHeight
+    width: settings.canvasWidth
 
   # Retrieve the actual `canvas` element from the jQuery object.
   canvasElement = canvasObject.get(0)
@@ -135,7 +135,7 @@ update = ->
 
 
 draw = ->
-  context.clearRect(0, 0, settings.canvas_width, settings.canvas_height)
+  context.clearRect(0, 0, settings.canvasWidth, settings.canvasHeight)
   for u in updateables
     return u.draw()
 
@@ -191,8 +191,8 @@ class Coke.Character
         @direction = 'right'
 
     # Prevent the player from going off the screen by `clamp`ing him down.
-    @x = @x.clamp 0, settings.canvas_width - settings.grid
-    @y = @y.clamp 0, settings.canvas_height - settings.grid
+    @x = @x.clamp 0, settings.canvasWidth - settings.grid
+    @y = @y.clamp 0, settings.canvasHeight - settings.grid
 
   # `Character.draw()` is called every `canvas` update cycle, just like
   # `Character.update()`. This is what draws and animates the player sprite.

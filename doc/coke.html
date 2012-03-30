@@ -81,8 +81,8 @@ Check out the <a href="https://github.com/mybuddymichael/coke">full source on Gi
         <p>Set the default width and height constants for the program.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>  <span class="nv">canvas_width: </span> <span class="mi">960</span>
-  <span class="nv">canvas_height: </span><span class="mi">640</span></pre></div>
+        <div class='highlight'><pre>  <span class="nv">canvasWidth: </span> <span class="mi">960</span>
+  <span class="nv">canvasHeight: </span><span class="mi">640</span></pre></div>
       </td>
     </tr>
     <tr id='section-7'>
@@ -237,8 +237,8 @@ main program.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre>  <span class="nx">canvasObject</span><span class="p">.</span><span class="nx">attr</span>
-    <span class="nv">height: </span><span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_height</span>
-    <span class="nv">width: </span><span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_width</span></pre></div>
+    <span class="nv">height: </span><span class="nx">settings</span><span class="p">.</span><span class="nx">canvasHeight</span>
+    <span class="nv">width: </span><span class="nx">settings</span><span class="p">.</span><span class="nx">canvasWidth</span></pre></div>
       </td>
     </tr>
     <tr id='section-19'>
@@ -377,7 +377,7 @@ circle.</p>
 
 
 <span class="nv">draw = </span><span class="o">-&gt;</span>
-  <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_width</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_height</span><span class="p">)</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvasWidth</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvasHeight</span><span class="p">)</span>
   <span class="k">for</span> <span class="nx">u</span> <span class="k">in</span> <span class="nx">updateables</span>
     <span class="k">return</span> <span class="nx">u</span><span class="p">.</span><span class="nx">draw</span><span class="p">()</span></pre></div>
       </td>
@@ -495,8 +495,8 @@ direction.</p>
         <p>Prevent the player from going off the screen by <code>clamp</code>ing him down.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="vi">@x = </span><span class="nx">@x</span><span class="p">.</span><span class="nx">clamp</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_width</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span>
-    <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvas_height</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span></pre></div>
+        <div class='highlight'><pre>    <span class="vi">@x = </span><span class="nx">@x</span><span class="p">.</span><span class="nx">clamp</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvasWidth</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span>
+    <span class="vi">@y = </span><span class="nx">@y</span><span class="p">.</span><span class="nx">clamp</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">canvasHeight</span> <span class="o">-</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">grid</span></pre></div>
       </td>
     </tr>
     <tr id='section-37'>

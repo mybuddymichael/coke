@@ -6,8 +6,8 @@
   Coke = root.Coke = {};
 
   settings = Coke.settings = {
-    canvas_width: 960,
-    canvas_height: 640,
+    canvasWidth: 960,
+    canvasHeight: 640,
     grid: 32,
     fps: 60,
     controls: {
@@ -45,8 +45,8 @@
   $(function() {
     canvasObject = $('canvas');
     canvasObject.attr({
-      height: settings.canvas_height,
-      width: settings.canvas_width
+      height: settings.canvasHeight,
+      width: settings.canvasWidth
     });
     canvasElement = canvasObject.get(0);
     return context = canvasElement.getContext('2d');
@@ -79,7 +79,7 @@
 
   draw = function() {
     var u, _i, _len;
-    context.clearRect(0, 0, settings.canvas_width, settings.canvas_height);
+    context.clearRect(0, 0, settings.canvasWidth, settings.canvasHeight);
     for (_i = 0, _len = updateables.length; _i < _len; _i++) {
       u = updateables[_i];
       return u.draw();
@@ -136,8 +136,8 @@
           this.x += this.movementFactor;
           this.direction = 'right';
       }
-      this.x = this.x.clamp(0, settings.canvas_width - settings.grid);
-      return this.y = this.y.clamp(0, settings.canvas_height - settings.grid);
+      this.x = this.x.clamp(0, settings.canvasWidth - settings.grid);
+      return this.y = this.y.clamp(0, settings.canvasHeight - settings.grid);
     };
 
     Character.prototype.draw = function() {
