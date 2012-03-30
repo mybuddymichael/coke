@@ -300,11 +300,11 @@ called <code>requestAnimationFrame</code>. If the browser does support it, assig
 <code>animate</code>, else assign <code>null</code>.</p>
       </td>
       <td class=code>
-        <div class='highlight'><pre><span class="nv">animate = </span><span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span> <span class="o">||</span>
-  <span class="nb">window</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span> <span class="o">||</span>
-  <span class="nb">window</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span> <span class="o">||</span>
-  <span class="nb">window</span><span class="p">.</span><span class="nx">oRequestAnimationFrame</span> <span class="o">||</span>
-  <span class="nb">window</span><span class="p">.</span><span class="nx">msRequestAnimationFrame</span> <span class="o">||</span>
+        <div class='highlight'><pre><span class="nv">animate = </span><span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span> <span class="o">or</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span> <span class="o">or</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span> <span class="o">or</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">oRequestAnimationFrame</span> <span class="o">or</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">msRequestAnimationFrame</span> <span class="o">or</span>
   <span class="kc">null</span></pre></div>
       </td>
     </tr>

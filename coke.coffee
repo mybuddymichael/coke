@@ -98,11 +98,11 @@ mainLoop = ->
 # Some of the more modern browsers have support for a smoother animation loop
 # called `requestAnimationFrame`. If the browser does support it, assign it to
 # `animate`, else assign `null`.
-animate = window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.oRequestAnimationFrame ||
-  window.msRequestAnimationFrame ||
+animate = window.requestAnimationFrame or
+  window.webkitRequestAnimationFrame or
+  window.mozRequestAnimationFrame or
+  window.oRequestAnimationFrame or
+  window.msRequestAnimationFrame or
   null
 
 # Like above, if `animate` is anything other than `null` (meaning the browser
