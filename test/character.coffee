@@ -16,10 +16,10 @@ $ ->
 
   test 'getImageXFromPosition square coordinates', 4,  ->
     testChar = new Coke.Character
-    equal testChar.getImageXFromPosition('up', 0, 0), 0
-    equal testChar.getImageXFromPosition('down', 0, 0), 32
-    equal testChar.getImageXFromPosition('left', 0, 0), 32 * 2
-    equal testChar.getImageXFromPosition('right', 0, 0), 32 * 3
+    equal testChar.getImageXFromPosition('up', 0, 0), 0, 'up'
+    equal testChar.getImageXFromPosition('down', 0, 0), 32, 'down'
+    equal testChar.getImageXFromPosition('left', 0, 0), 32 * 2, 'left'
+    equal testChar.getImageXFromPosition('right', 0, 0), 32 * 3, 'right'
 
   test 'getImageXFromPosition up off-grid', 2, ->
     testChar = new Coke.Character
