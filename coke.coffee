@@ -1,6 +1,7 @@
-# **[Coke](http://mybuddymichael.github.com/coke/)** is a game project written
-# in CoffeeScript/JavaScript, and uses HTML5's `canvas` element for rendering.
-# Check out the [full source on GitHub](https://github.com/mybuddymichael/coke).
+# **[Coke](http://mybuddymichael.github.com/coke/)** is a game project
+# written in CoffeeScript, and uses HTML5's `canvas` element for
+# rendering. Check out the
+# [full source on GitHub](https://github.com/mybuddymichael/coke).
 
 
 # ### Setup
