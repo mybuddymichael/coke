@@ -6,7 +6,7 @@
 # ### Setup
 
 # Save the root object, `window`.
-root = this;
+root = this
 
 # Set Coke as this program's global variable object.
 Coke = root.Coke = {}
